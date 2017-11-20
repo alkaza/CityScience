@@ -26,9 +26,9 @@ Physical Pin20 - Gnd  (Ground)
 ```
 
 #### Note
-- Physical - Number corresponding to the pin's physical location on the header
-- BCM - Broadcom pin number, commonly called "GPIO", these are the ones you probably want to use with RPi.GPIO and GPIO Zero
-- WiringPi - Wiring Pi pin number (shown as a tooltip), for Gordon Henderson's Wiring Pi library
+- **Physical**  - Number corresponding to the pin's physical location on the header
+- **BCM** - Broadcom pin number, commonly called "GPIO", these are the ones you probably want to use with RPi.GPIO and GPIO Zero
+- **WiringPi**  - Wiring Pi pin number (shown as a tooltip), for Gordon Henderson's Wiring Pi library
 
 #### Raspberry Pi Pinout
 https://pinout.xyz/
