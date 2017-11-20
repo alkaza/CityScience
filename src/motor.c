@@ -50,8 +50,35 @@ int main(void)
 	/* Main code, runs repeatedly */
 	while (1) {
 		/* Go straight */
+		/*
 		setDir(FORWARD);
 		setSpeed(SPEED, SPEED);
+		*/
+
+		/* Go back */
+		setDir(BACKWARD);
+		setSpeed(SPEED, SPEED);
+		
+		/* Turn right */
+		/*
+		setDir(RIGHT);
+		setSpeed(SPEED, SPEED);
+		delay(100);
+		*/
+		
+		/* Turn left */
+		/*
+		setDir(LEFT);
+		setSpeed(SPEED, SPEED);
+		delay(100);
+		*/
+		
+		/* Stop */
+		/*
+		setDir(STOP);
+		setSpeed(0, 0);
+		delay(1000);
+		*/
 	}
 
 	return 0;
