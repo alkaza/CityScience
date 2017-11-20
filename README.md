@@ -12,12 +12,12 @@ Physical Pin33 - EnB (BCM Pin13, WiringPi Pin23, PWM1)
 Physical Pin21 - In3 (BCM Pin6,  WiringPi Pin22)
 Physical Pin29 - In4 (BCM Pin5,  WiringPi Pin21)
 
-Physical Pin39  - Gnd (Ground)
+Physical Pin39 - Gnd (Ground)
 ```
 
 ### Ultrasonic Sensor HC-SR04
 ```
-Raspberry Pi 3  - Ultrasonic Sensor
+Raspberry Pi 3 - Ultrasonic Sensor
 
 Physical Pin2  - Vcc  (3v3 Power)
 Physical Pin16 - Trig (BCM Pin23, WiringPi Pin4)
