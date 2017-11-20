@@ -50,10 +50,10 @@ int main(void)
 	/* Main code, runs repeatedly */
 	while (1) {
 		/* Go straight */
-		//move(FORWARD, SPEED, SPEED);
+		move(FORWARD, SPEED, SPEED);
 
 		/* Go back */
-		move(BACKWARD, SPEED, SPEED);
+		//move(BACKWARD, SPEED, SPEED);
 		
 		/* Turn right */
 		//move(RIGHT, SPEED, SPEED);
@@ -62,8 +62,9 @@ int main(void)
 		//move(LEFT, SPEED, SPEED);
 		
 		/* Stop */
-		move(STOP, 0, 0);
-		delay(3000);
+		//move(STOP, 0, 0);
+		
+		//delay(3000);
 	}
 
 	return 0;
