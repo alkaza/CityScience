@@ -70,7 +70,7 @@ int main(void)
 		
 		/* Modify here */
 		if ((range < MINRANGE) && (range > 0)) {
-    	printf("go straight\n");
+    			printf("go straight\n");
 			move(FORWARD, SPEED, SPEED);
 		}
 		else {
