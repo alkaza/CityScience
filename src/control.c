@@ -2,7 +2,6 @@
 #include <wiringPi.h>
 #include <stdio.h>
 #include <sys/time.h>
-#include <softPwm.h>
 
 /* WiringPi pin numbering scheme */
 
@@ -10,9 +9,10 @@
 #define MotorEnA	1
 #define MotorIn1	2
 #define MotorIn2	3
-#define MotorIn3	21
-#define MotorIn4	22
 #define MotorEnB	23
+#define MotorIn3	22
+#define MotorIn4	21
+
 
 /* Ultrasonic sensor pins */
 #define Trig	4
@@ -29,16 +29,17 @@
 
 /* Function declaration */
 void sigHandler	(int sigNo);
-void motorInit	(void);
 void ultraInit	(void);
 float getRange	(void);
-void setSpeed	(int speedA, int speedB);
-void setDir	(char dir);
-void goFW	(void);
-void goBW	(void);
-void turnR	(void);
-void turnL	(void);
-void stop	(void);
+void motorInit	(void);
+void move	(char dir, int speedA, int speedB);
+void setSpeed   (int speedA, int speedB);
+void goFW       (void);
+void goBW       (void);
+void turnR      (void);
+void turnL      (void);
+void stop       (void);
+
 
 int main(void)
 {
@@ -66,17 +67,14 @@ int main(void)
 		/* Modify here */
 		if ((range < MINRANGE) && (range > 0)) {
 			printf("stop\n");
-			setDir(STOP);
-			delay(100);
+			move(STOP, 0, 0);
 			
 			printf("turn right\n");
-			setDir(RIGHT);
-			setSpeed(SPEED, SPEED);
+			move(RIGHT, SPEED, SPEED);
 		}
 		else {
 			printf("go straight\n");
-			setDir(FORWARD);
-			setSpeed(SPEED, SPEED);
+			move(FORWARD, SPEED, SPEED);
 		}
 	}
 
@@ -85,8 +83,7 @@ int main(void)
 
 void sigHandler(int sigNo)
 {
-	setDir(STOP);
-	setSpeed(0, 0);
+	move(STOP, 0, 0);
 	exit(sigNo);
 }
 
@@ -135,31 +132,40 @@ float getRange(void)
 	return range;
 }
 
-void setSpeed(int speedA, int speedB) 
-{
-	pwmWrite (MotorEnA, speedA);
-	pwmWrite (MotorEnB, speedB);
-}
-
-void setDir(char dir) 
+void move(char dir, int speedA, int speedB) 
 {
 	switch (dir) {
 		case 'F':
 			goFW();
+			setSpeed(speedA, speedB);
 			break;
 		case 'B':
 			goBW();
+			setSpeed(speedA, speedB);
+			delay(150);
 			break;
 		case 'R':
 			turnR();
+			setSpeed(speedA, speedB);
+			delay(250);
 			break;
 		case 'L':
 			turnL();
+			setSpeed(speedA, speedB);
+			delay(250);
 			break;
 		case 'S':
 			stop();
+			setSpeed(0, 0);
+			delay(100);
 			break;
 	}
+}
+
+void setSpeed(int speedA, int speedB) 
+{
+	pwmWrite (MotorEnA, speedA);
+	pwmWrite (MotorEnB, speedB);
 }
 
 void goFW(void) 
