@@ -50,33 +50,19 @@ int main(void)
 	/* Main code, runs repeatedly */
 	while (1) {
 		/* Go straight */
-		/*
-		setDir(FORWARD);
-		setSpeed(SPEED, SPEED);
-		*/
+		//move(FORWARD, SPEED, SPEED);
 
 		/* Go back */
-		setDir(BACKWARD);
-		setSpeed(SPEED, SPEED);
-		delay(100);
+		//move(BACKWARD, SPEED, SPEED);
 		
 		/* Turn right */
-		/*
-		setDir(RIGHT);
-		setSpeed(SPEED, SPEED);
-		delay(100);
-		*/
+		move(RIGHT, SPEED, SPEED);
 		
 		/* Turn left */
-		/*
-		setDir(LEFT);
-		setSpeed(SPEED, SPEED);
-		delay(100);
-		*/
+		//move(LEFT, SPEED, SPEED);
 		
 		/* Stop */
-		setDir(STOP);
-		setSpeed(0, 0);
+		move(STOP, 0, 0);
 		delay(1000);
 	}
 
@@ -100,32 +86,40 @@ void motorInit(void)
 	pinMode(MotorEnB, PWM_OUTPUT);
 }
 
+void move(char dir, int speedA, int speedB) 
+{
+	switch (dir) {
+		case 'F':
+			goFW();
+			setSpeed(speedA, speedB);
+			break;
+		case 'B':
+			goBW();
+			setSpeed(speedA, speedB);
+			delay(100);
+			break;
+		case 'R':
+			turnR();
+			setSpeed(speedA, speedB);
+			delay(300);
+			break;
+		case 'L':
+			turnL();
+			setSpeed(speedA, speedB);
+			delay(300);
+			break;
+		case 'S':
+			stop();
+			setSpeed(0, 0);
+			delay(100);
+			break;
+	}
+}
 
 void setSpeed(int speedA, int speedB) 
 {
 	pwmWrite (MotorEnA, speedA);
 	pwmWrite (MotorEnB, speedB);
-}
-
-void setDir(char dir) 
-{
-	switch (dir) {
-		case 'F':
-			goFW();
-			break;
-		case 'B':
-			goBW();
-			break;
-		case 'R':
-			turnR();
-			break;
-		case 'L':
-			turnL();
-			break;
-		case 'S':
-			stop();
-			break;
-	}
 }
 
 void goFW(void) 
