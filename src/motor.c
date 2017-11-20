@@ -63,7 +63,7 @@ int main(void)
 		//delay(250);
 		
 		/* Stop */
-		//move(STOP, 0, 0);
+		//move(STOP, SPEED, SPEED);
 		
 		//delay(3000);
 	}
@@ -109,7 +109,7 @@ void move(char dir, int speedA, int speedB)
 			break;
 		case 'S':
 			stop();
-			setSpeed(0, 0);
+			setSpeed(speedA, speedB);
 			break;
 	}
 }
