@@ -155,7 +155,7 @@ void move(char dir, int speedA, int speedB)
 			break;
 		case 'S':
 			stop();
-			setSpeed(0, 0);
+			setSpeed(speedA, speedB);
 			break;
 	}
 }
