@@ -14,13 +14,13 @@
 #define MotorEnB	23
 
 /* Macros */
-#define MINRANGE  5
-#define SPEED     200
-#define FORWARD   'F'
-#define BACKWARD  'B'
-#define RIGHT	  'R'
-#define LEFT	  'L'
-#define STOP	  'S'
+#define MINRANGE	5
+#define SPEED		200
+#define FORWARD		'F'
+#define BACKWARD	'B'
+#define RIGHT		'R'
+#define LEFT		'L'
+#define STOP		'S'
 
 /* Function declaration */
 void sigHandler (int sigNo);
