@@ -1,3 +1,4 @@
+#include <signal.h>
 #include <wiringPi.h>
 #include <stdio.h>
 #include <sys/time.h>
@@ -26,8 +27,69 @@
 #define STOP		'S'
 
 /* speed */
-#define SPEED	100
+#define SPEED	80
 
+/* function prototypes */
+void sigHandler(int sigNo);
+void motorInit();
+void ultraInit(void);
+float getRange(void);
+void setSpeed(int speedA, int speedB);
+void setDir(char dir);
+void goFW();
+void goBW();
+void turnR();
+void turnL();
+void stop();
+
+int main(void)
+{
+	if (signal(SIGINT, sigHandler) == SIG_ERR){
+		printf("exit\n");
+	}
+	
+	/* Setup code, it runs once */
+	if (wiringPiSetup() == -1) {
+		exit(1);
+	}
+
+	motorInit();
+	ultraInit();
+
+	float range;
+
+	/* Main code, runs repeatedly: */
+	while (1) {
+		range = getRange();
+		printf("range = %0.2f cm\n", range);
+		delay(10);
+		
+		/* Modify here: */
+		if ((range < 4 ) && (range > 0)) {
+			printf("stop\n");
+			setDir(STOP);
+			delay(10);
+			
+			printf("turn right\n");
+			setDir(RIGHT);
+			setSpeed(SPEED, SPEED);
+		}
+		else {
+			printf("go straight\n");
+			setDir(FORWARD);
+			setSpeed(SPEED, SPEED);
+		}
+	}
+
+	return 0;
+}
+
+void sigHandler(int sigNo)
+{
+	setDir(STOP);
+	setSpeed(0, 0);
+	exit(sigNo);
+}
 
 void motorInit() 
 {
@@ -72,49 +134,6 @@ float getRange(void)
 	//range = (stop - start) * 34000 / 1000000 / 2;
 
 	return range;
-}
-
-/* function declarations */
-void setSpeed(int speedA, int speedB);
-void setDir(char dir);
-void goFW();
-void goBW();
-void turnR();
-void turnL();
-void stop();
-
-int main(void)
-{
-	/* Setup code, it runs once */
-	if (wiringPiSetup() == -1) {
-	return 1;
-	}
-
-	motorInit();
-	ultraInit();
-
-	float range;
-
-	/* Main code, runs repeatedly: */
-	while (1) {
-		range = getRange();
-		printf("range = %0.2f cm\n", range);
-		delay(1000);
-		
-		/* Modify here: */
-		if ((range < 4 ) && (range > 0)) {
-			printf("turn right");
-			setDir(RIGHT);
-			setSpeed(SPEED, SPEED);
-		}
-		else {
-			printf("go straight");
-			setDir(FORWARD);
-			setSpeed(SPEED, SPEED);
-		}
-	}
-
-	return 0;
 }
 
 void setSpeed(int speedA, int speedB) 
