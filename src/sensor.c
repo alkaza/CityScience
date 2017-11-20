@@ -9,10 +9,10 @@
 #define Trig	4
 #define Echo	5
 
-/* Macros */
-#define MINRANGE	5
+/* Min range */
+#define MINRANGE	5	// possible range 2~400 cm (3.3V)
 
-/* Function declaration */
+/* Function declarations */
 void sigHandler	(int sigNo);
 void ultraInit	(void);
 float getRange	(void);
