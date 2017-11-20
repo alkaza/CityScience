@@ -4,23 +4,26 @@
 #include <softPwm.h>
 
 /* WiringPi pin numbering scheme */
-#define MotorEnA   1
-#define MotorIn1   2
-#define MotorIn2   3
 
-#define MotorIn3   21
-#define MotorIn4   22
-#define MotorEnB   23
+/* motor driver pins */
+#define MotorEnA	1
+#define MotorIn1	2
+#define MotorIn2	3
 
-#define Trig      4
-#define Echo      5
+#define MotorIn3	21
+#define MotorIn4	22
+#define MotorEnB	23
+
+/* ultrasonic sensor pins */
+#define Trig	4
+#define Echo	5
 
 /* directions */
-#define FORWARD   'F'
-#define BACKWARD  'B'
-#define RIGHT     'R'
-#define LEFT      'L'
-#define STOP      'S'
+#define FORWARD		'F'
+#define BACKWARD	'B'
+#define RIGHT		'R'
+#define LEFT		'L'
+#define STOP		'S'
 
 /* speed */
 #define SPEED      200
@@ -70,12 +73,22 @@ float getRange(void)
    return range;
 }
 
+/* function declarations */
+void goFW();
+void goBW();
+void turnR();
+void turnL();
+void stop();
+void setDir(char dir);
+void setSpeed(int speedA, int speedB);
+void action (char dir, int speedA, int speedB, int time);
+
 int main(void)
 {
    
    /* Setup code, it runs once */
    if (wiringPiSetup() == -1){
-      exit(1);
+      return 1;
    }
    
    motorInit();
@@ -107,8 +120,8 @@ void action (char dir, int speedA, int speedB, int time){
 }
 
 void setSpeed(int speedA, int speedB){
-   pwmWrite (EnA, speedA);
-   pwmWrite (EnB, speedB);
+   pwmWrite (MotorEnA, speedA);
+   pwmWrite (MotorEnB, speedB);
 }
 
 void setDir(char dir){
@@ -132,36 +145,36 @@ void setDir(char dir){
 }
 
 void goFW(){
-   digitalWrite(In1, HIGH);
-   digitalWrite(In2, LOW);
-   digitalWrite(In3, HIGH);
-   digitalWrite(In4, LOW);
+   digitalWrite(MotorIn1, HIGH);
+   digitalWrite(MotorIn2, LOW);
+   digitalWrite(MotorIn3, HIGH);
+   digitalWrite(MotorIn4, LOW);
 }
 
 void goBW(){
-   digitalWrite(In1, LOW);
-   digitalWrite(In2, HIGH);
-   digitalWrite(In3, LOW);
-   digitalWrite(In4, HIGH);
+   digitalWrite(MotorIn1, LOW);
+   digitalWrite(MotorIn2, HIGH);
+   digitalWrite(MotorIn3, LOW);
+   digitalWrite(MotorIn4, HIGH);
 }
 
 void turnR(){
-   digitalWrite(In1, HIGH);
-   digitalWrite(In2, LOW);
-   digitalWrite(In3, LOW);
-   digitalWrite(In4, HIGH);
+   digitalWrite(MotorIn1, HIGH);
+   digitalWrite(MotorIn2, LOW);
+   digitalWrite(MotorIn3, LOW);
+   digitalWrite(MotorIn4, HIGH);
 }
 
 void turnL(){
-   digitalWrite(In1, LOW);
-   digitalWrite(In2, HIGH);
-   digitalWrite(In3, HIGH);
-   digitalWrite(In4, LOW);
+   digitalWrite(MotorIn1, LOW);
+   digitalWrite(MotorIn2, HIGH);
+   digitalWrite(MotorIn3, HIGH);
+   digitalWrite(MotorIn4, LOW);
 }
 
 void stop(){
-   digitalWrite(In1, LOW);
-   digitalWrite(In2, LOW);
-   digitalWrite(In3, LOW);
-   digitalWrite(In4, LOW);
+   digitalWrite(MotorIn1, LOW);
+   digitalWrite(MotorIn2, LOW);
+   digitalWrite(MotorIn3, LOW);
+   digitalWrite(MotorIn4, LOW);
 }
