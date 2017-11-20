@@ -107,6 +107,7 @@ int main(void)
       else {
          action(FORWARD, SPEED, SPEED, 0);
       }
+   }
    
    return 0;
 }
