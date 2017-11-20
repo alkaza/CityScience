@@ -19,8 +19,8 @@
 #define Echo	5
 
 /* Macros */
-#define MINRANGE	4
-#define SPEED		80
+#define MINRANGE	5
+#define SPEED		200
 #define FORWARD		'F'
 #define BACKWARD	'B'
 #define RIGHT		'R'
@@ -67,7 +67,7 @@ int main(void)
 		if ((range < MINRANGE) && (range > 0)) {
 			printf("stop\n");
 			setDir(STOP);
-			delay(10);
+			delay(100);
 			
 			printf("turn right\n");
 			setDir(RIGHT);
@@ -90,7 +90,7 @@ void sigHandler(int sigNo)
 	exit(sigNo);
 }
 
-void motorInit() 
+void motorInit(void) 
 {
 	pinMode(MotorIn1, OUTPUT);
 	pinMode(MotorIn2, OUTPUT);
@@ -162,7 +162,7 @@ void setDir(char dir)
 	}
 }
 
-void goFW() 
+void goFW(void) 
 {
 	digitalWrite(MotorIn1, HIGH);
 	digitalWrite(MotorIn2, LOW);
@@ -170,7 +170,7 @@ void goFW()
 	digitalWrite(MotorIn4, LOW);
 }
 
-void goBW() 
+void goBW(void) 
 {
 	digitalWrite(MotorIn1, LOW);
 	digitalWrite(MotorIn2, HIGH);
@@ -178,7 +178,7 @@ void goBW()
 	digitalWrite(MotorIn4, HIGH);
 }
 
-void turnR() 
+void turnR(void) 
 {
 	digitalWrite(MotorIn1, HIGH);
 	digitalWrite(MotorIn2, LOW);
@@ -186,7 +186,7 @@ void turnR()
 	digitalWrite(MotorIn4, HIGH);
 }
 
-void turnL() 
+void turnL(void) 
 {
 	digitalWrite(MotorIn1, LOW);
 	digitalWrite(MotorIn2, HIGH);
@@ -194,7 +194,7 @@ void turnL()
 	digitalWrite(MotorIn4, LOW);
 }
 
-void stop() 
+void stop(void) 
 {
 	digitalWrite(MotorIn1, LOW);
 	digitalWrite(MotorIn2, LOW);
