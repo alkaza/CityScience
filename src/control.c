@@ -20,7 +20,7 @@
 
 /* Macros */
 #define MINRANGE	5
-#define SPEED		200
+#define SPEED		100
 #define FORWARD		'F'
 #define BACKWARD	'B'
 #define RIGHT		'R'
@@ -68,7 +68,7 @@ int main(void)
 		if ((range < MINRANGE) && (range > 0)) {
 			printf("stop\n");
 			move(STOP, SPEED, SPEED);
-			delay(200);
+			delay(300);
 			
 			printf("turn right\n");
 			move(RIGHT, SPEED, SPEED);
