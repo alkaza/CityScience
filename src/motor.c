@@ -49,10 +49,9 @@ int main(void)
 
 	/* Main code, runs repeatedly */
 	while (1) {
-    /* Go straight */
+		/* Go straight */
 		setDir(FORWARD);
 		setSpeed(SPEED, SPEED);
-		}
 	}
 
 	return 0;
