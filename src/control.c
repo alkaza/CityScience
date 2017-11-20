@@ -6,9 +6,11 @@
 /* WiringPi pin numbering scheme */
 
 /* Motor driver pins */
+/* Motor A */
 #define MotorEnA	1
 #define MotorIn1	2
 #define MotorIn2	3
+/* Motor B */
 #define MotorEnB	23
 #define MotorIn3	22
 #define MotorIn4	21
@@ -18,16 +20,18 @@
 #define Trig	4
 #define Echo	5
 
-/* Macros */
-#define MINRANGE	5
-#define SPEED		200
+/* Directions */
 #define FORWARD		'F'
 #define BACKWARD	'B'
 #define RIGHT		'R'
 #define LEFT		'L'
 #define STOP		'S'
 
-/* Function declaration */
+/* Other macros */
+#define MINRANGE	5	// possible range 2~400 cm (3.3V)
+#define SPEED		200 	// possible range 0~255 PWM
+
+/* Function declarations */
 void sigHandler	(int sigNo);
 void ultraInit	(void);
 float getRange	(void);
