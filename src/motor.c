@@ -25,8 +25,8 @@
 /* Function declaration */
 void sigHandler (int sigNo);
 void motorInit  (void);
+void move	(char dir, int speedA, int speedB);
 void setSpeed   (int speedA, int speedB);
-void setDir     (char dir);
 void goFW       (void);
 void goBW       (void);
 void turnR      (void);
