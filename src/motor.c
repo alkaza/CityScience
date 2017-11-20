@@ -6,12 +6,12 @@
 /* WiringPi pin numbering scheme */
 
 /* Motor driver pins */
-#define MotorEnB	1
-#define MotorIn4	2
-#define MotorIn3	3
-#define MotorIn2	21
-#define MotorIn1	22
-#define MotorEnA	23
+#define MotorEnA	1
+#define MotorIn1	2
+#define MotorIn2	3
+#define MotorEnB	23
+#define MotorIn3	22
+#define MotorIn4	21
 
 /* Macros */
 #define MINRANGE	5
