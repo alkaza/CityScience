@@ -68,6 +68,7 @@ int main(void)
 		if ((range < MINRANGE) && (range > 0)) {
 			printf("stop\n");
 			move(STOP, 0, 0);
+			delay(100);
 			
 			printf("turn right\n");
 			move(RIGHT, SPEED, SPEED);
@@ -142,22 +143,18 @@ void move(char dir, int speedA, int speedB)
 		case 'B':
 			goBW();
 			setSpeed(speedA, speedB);
-			delay(150);
 			break;
 		case 'R':
 			turnR();
 			setSpeed(speedA, speedB);
-			delay(250);
 			break;
 		case 'L':
 			turnL();
 			setSpeed(speedA, speedB);
-			delay(250);
 			break;
 		case 'S':
 			stop();
 			setSpeed(0, 0);
-			delay(100);
 			break;
 	}
 }
