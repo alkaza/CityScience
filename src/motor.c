@@ -71,8 +71,7 @@ int main(void)
 
 void sigHandler(int sigNo)
 {
-	setDir(STOP);
-	setSpeed(0, 0);
+	move(STOP, 0, 0);
 	exit(sigNo);
 }
 
