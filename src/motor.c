@@ -53,13 +53,13 @@ int main(void)
 		//move(FORWARD, SPEED, SPEED);
 
 		/* Go back */
-		//move(BACKWARD, SPEED, SPEED);
+		move(BACKWARD, SPEED, SPEED);
 		
 		/* Turn right */
 		//move(RIGHT, SPEED, SPEED);
 		
 		/* Turn left */
-		move(LEFT, SPEED, SPEED);
+		//move(LEFT, SPEED, SPEED);
 		
 		/* Stop */
 		move(STOP, 0, 0);
