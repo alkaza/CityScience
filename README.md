@@ -1,5 +1,3 @@
-#Obstacle Avoiding Robot Project
-
 ## Wiring Raspberry Pi 3 Model B V1.2
 
 ### DC Motor Driver
