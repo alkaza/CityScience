@@ -56,10 +56,10 @@ int main(void)
 		//move(BACKWARD, SPEED, SPEED);
 		
 		/* Turn right */
-		move(RIGHT, SPEED, SPEED);
+		//move(RIGHT, SPEED, SPEED);
 		
 		/* Turn left */
-		//move(LEFT, SPEED, SPEED);
+		move(LEFT, SPEED, SPEED);
 		
 		/* Stop */
 		move(STOP, 0, 0);
@@ -95,7 +95,7 @@ void move(char dir, int speedA, int speedB)
 		case 'B':
 			goBW();
 			setSpeed(speedA, speedB);
-			delay(100);
+			delay(150);
 			break;
 		case 'R':
 			turnR();
