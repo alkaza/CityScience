@@ -26,7 +26,7 @@
 #define STOP		'S'
 
 /* speed */
-#define SPEED	200
+#define SPEED	100
 
 
 void motorInit() 
@@ -99,8 +99,11 @@ int main(void)
 	/* Main code, runs repeatedly: */
 	while (1) {
 		range = getRange();
+		printf("range = %0.2f cm\n", range);
+		//delay(1000);
+		
 		/* Modify here: */
-		if ((range < 4 ) && (range > 0)) {
+		if ((range < 5 ) && (range > 0)) {
 			action(RIGHT, SPEED, SPEED, 100);
 			action(FORWARD, SPEED, SPEED, 0);
 		}
@@ -115,7 +118,7 @@ int main(void)
 void action (char dir, int speedA, int speedB, int time) 
 {
 	setSpeed(0, 0);
-	delay(1);
+	delay(100);
 	setDir(dir);
 	setSpeed(speedA, speedB);
 	delay(time);
