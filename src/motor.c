@@ -100,12 +100,12 @@ void move(char dir, int speedA, int speedB)
 		case 'R':
 			turnR();
 			setSpeed(speedA, speedB);
-			delay(200);
+			delay(250);
 			break;
 		case 'L':
 			turnL();
 			setSpeed(speedA, speedB);
-			delay(200);
+			delay(250);
 			break;
 		case 'S':
 			stop();
