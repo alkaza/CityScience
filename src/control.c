@@ -6,49 +6,48 @@
 
 /* WiringPi pin numbering scheme */
 
-/* motor driver pins */
+/* Motor driver pins */
 #define MotorEnA	1
 #define MotorIn1	2
 #define MotorIn2	3
-
 #define MotorIn3	21
 #define MotorIn4	22
 #define MotorEnB	23
 
-/* ultrasonic sensor pins */
+/* Ultrasonic sensor pins */
 #define Trig	4
 #define Echo	5
 
-/* directions */
+/* Macros */
+#define MINRANGE	4
+#define SPEED		80
 #define FORWARD		'F'
 #define BACKWARD	'B'
 #define RIGHT		'R'
 #define LEFT		'L'
 #define STOP		'S'
 
-/* speed */
-#define SPEED	80
-
-/* function prototypes */
-void sigHandler(int sigNo);
-void motorInit();
-void ultraInit(void);
-float getRange(void);
-void setSpeed(int speedA, int speedB);
-void setDir(char dir);
-void goFW();
-void goBW();
-void turnR();
-void turnL();
-void stop();
+/* Function declaration */
+void sigHandler	(int sigNo);
+void motorInit	(void);
+void ultraInit	(void);
+float getRange	(void);
+void setSpeed	(int speedA, int speedB);
+void setDir	(char dir);
+void goFW	(void);
+void goBW	(void);
+void turnR	(void);
+void turnL	(void);
+void stop	(void);
 
 int main(void)
 {
+	/* Ctrl-C handler */
 	if (signal(SIGINT, sigHandler) == SIG_ERR){
 		printf("exit\n");
 	}
 	
-	/* Setup code, it runs once */
+	/* Setup code, runs once */
 	if (wiringPiSetup() == -1) {
 		exit(1);
 	}
@@ -58,14 +57,14 @@ int main(void)
 
 	float range;
 
-	/* Main code, runs repeatedly: */
+	/* Main code, runs repeatedly */
 	while (1) {
 		range = getRange();
 		printf("range = %0.2f cm\n", range);
 		delay(10);
 		
-		/* Modify here: */
-		if ((range < 4 ) && (range > 0)) {
+		/* Modify here */
+		if ((range < MINRANGE) && (range > 0)) {
 			printf("stop\n");
 			setDir(STOP);
 			delay(10);
