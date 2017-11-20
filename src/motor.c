@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <signal.h>
 #include <wiringPi.h>
-#include <softPwm.h>
 
 /* WiringPi pin numbering scheme */
 
