@@ -7,7 +7,7 @@
 
 /* Motor driver pins */
 #define MotorEnA	1
-#define MotorIn1  2
+#define MotorIn1	2
 #define MotorIn2	3
 #define MotorIn3	21
 #define MotorIn4	22
@@ -18,9 +18,9 @@
 #define SPEED     200
 #define FORWARD   'F'
 #define BACKWARD  'B'
-#define RIGHT		  'R'
-#define LEFT		  'L'
-#define STOP		  'S'
+#define RIGHT	  'R'
+#define LEFT	  'L'
+#define STOP	  'S'
 
 /* Function declaration */
 void sigHandler (int sigNo);
