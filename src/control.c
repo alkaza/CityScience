@@ -66,10 +66,6 @@ int main(void)
 		
 		/* Modify here */
 		if ((range < MINRANGE) && (range > 0)) {
-			printf("stop\n");
-			move(STOP, SPEED, SPEED);
-			delay(300);
-			
 			printf("turn right\n");
 			move(RIGHT, SPEED, SPEED);
 		}
