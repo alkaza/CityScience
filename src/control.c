@@ -49,7 +49,7 @@ float getRange(void)
    struct timeval tv1;
    struct timeval tv2;
    long start, stop;
-    float range;
+   float range;
 
    digitalWrite(Trig, LOW);
    delayMicroseconds(2);
@@ -100,7 +100,7 @@ int main(void)
    while(1){
       range = getRange();
       /* Modify here: */
-      if (range < 4 && (range > 0){
+      if ((range < 4 )&& (range > 0)){
          action(RIGHT, SPEED, SPEED, 100);
          action(FORWARD, SPEED, SPEED, 0);
       }
