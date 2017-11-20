@@ -35,7 +35,7 @@ int main(void)
 {
 	/* Ctrl-C handler */
 	if (signal(SIGINT, sigHandler) == SIG_ERR){
-		printf("exit\n");
+		perror("Error: cannot handle SIGINT");
 	}
 	
 	/* Setup code, runs once */
@@ -73,8 +73,9 @@ int main(void)
 
 void sigHandler(int sigNo)
 {
+	printf("Caught SIGINT, exiting now\n");
 	move(STOP, 0, 0);
-	exit(sigNo);
+	exit(0);
 }
 
 void motorInit(void) 
