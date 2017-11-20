@@ -52,12 +52,15 @@ int main(void)
 
 		/* Go back */
 		//move(BACKWARD, SPEED, SPEED);
+		//delay(150);
 		
 		/* Turn right */
 		//move(RIGHT, SPEED, SPEED);
+		//delay(250);
 		
 		/* Turn left */
 		//move(LEFT, SPEED, SPEED);
+		//delay(250);
 		
 		/* Stop */
 		//move(STOP, 0, 0);
@@ -94,22 +97,18 @@ void move(char dir, int speedA, int speedB)
 		case 'B':
 			goBW();
 			setSpeed(speedA, speedB);
-			delay(150);
 			break;
 		case 'R':
 			turnR();
 			setSpeed(speedA, speedB);
-			delay(250);
 			break;
 		case 'L':
 			turnL();
 			setSpeed(speedA, speedB);
-			delay(250);
 			break;
 		case 'S':
 			stop();
 			setSpeed(0, 0);
-			delay(100);
 			break;
 	}
 }
