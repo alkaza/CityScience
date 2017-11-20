@@ -35,7 +35,7 @@ int main(void)
 {
 	/* Ctrl-C handler */
 	if (signal(SIGINT, sigHandler) == SIG_ERR){
-		perror("Error: cannot handle SIGINT");
+		perror("Error: cannot handle SIGINT\n");
 	}
 	
 	/* Setup code, runs once */
