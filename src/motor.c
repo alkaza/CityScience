@@ -24,7 +24,7 @@
 /* Speed */
 #define SPEED		200 	// possible range 0~255 PWM
 
-/* Function declaration */
+/* Function declarations */
 void sigHandler (int sigNo);
 void motorInit  (void);
 void move	(char dir, int speedA, int speedB);
