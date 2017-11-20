@@ -75,7 +75,6 @@ float getRange(void)
 }
 
 /* function declarations */
-void action (char dir, int speedA, int speedB, int time);
 void setSpeed(int speedA, int speedB);
 void setDir(char dir);
 void goFW();
@@ -100,28 +99,22 @@ int main(void)
 	while (1) {
 		range = getRange();
 		printf("range = %0.2f cm\n", range);
-		//delay(1000);
+		delay(1000);
 		
 		/* Modify here: */
-		if ((range < 5 ) && (range > 0)) {
-			action(RIGHT, SPEED, SPEED, 100);
-			action(FORWARD, SPEED, SPEED, 0);
+		if ((range < 4 ) && (range > 0)) {
+			printf("turn right");
+			setDir(RIGHT);
+			setSpeed(SPEED, SPEED);
 		}
 		else {
-			action(FORWARD, SPEED, SPEED, 0);
+			printf("go straight");
+			setDir(FORWARD);
+			setSpeed(SPEED, SPEED);
 		}
 	}
 
 	return 0;
-}
-
-void action (char dir, int speedA, int speedB, int time) 
-{
-	setSpeed(0, 0);
-	delay(100);
-	setDir(dir);
-	setSpeed(speedA, speedB);
-	delay(time);
 }
 
 void setSpeed(int speedA, int speedB) 
