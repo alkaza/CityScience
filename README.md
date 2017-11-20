@@ -1,8 +1,8 @@
 ## Wiring Raspberry Pi 3 Model B V1.2
 
-### DC Motor Driver
+### DC Motor Driver L296N
 ```
-Raspberry Pi 3 - DC Motor Driver [L296N]:
+Raspberry Pi 3 - DC Motor Driver
 
 Physical Pin12 - EnA (BCM Pin18, WiringPi Pin1, PWM0)
 Physical Pin13 - In1 (BCM Pin27, WiringPi Pin2)
@@ -15,9 +15,9 @@ Physical Pin29 - In4 (BCM Pin5,  WiringPi Pin21)
 Physical Pin39  - Gnd (Ground)
 ```
 
-### Ultrasonic Sensor
+### Ultrasonic Sensor HC-SR04
 ```
-Raspberry Pi 3  - Ultrasonic Sensor [HC-SR04]:
+Raspberry Pi 3  - Ultrasonic Sensor
 
 Physical Pin2  - Vcc  (3v3 Power)
 Physical Pin16 - Trig (BCM Pin23, WiringPi Pin4)
