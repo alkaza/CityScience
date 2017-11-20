@@ -14,7 +14,6 @@
 #define MotorIn4	21
 
 /* Macros */
-#define MINRANGE	5
 #define SPEED		200
 #define FORWARD		'F'
 #define BACKWARD	'B'
