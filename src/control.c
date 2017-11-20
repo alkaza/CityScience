@@ -45,7 +45,7 @@ int main(void)
 {
 	/* Ctrl-C handler */
 	if (signal(SIGINT, sigHandler) == SIG_ERR){
-		printf("exit\n");
+		perror("Error: cannot handle SIGINT\n");
 	}
 	
 	/* Setup code, runs once */
@@ -68,7 +68,7 @@ int main(void)
 		if ((range < MINRANGE) && (range > 0)) {
 			printf("stop\n");
 			move(STOP, 0, 0);
-			delay(100);
+			delay(200);
 			
 			printf("turn right\n");
 			move(RIGHT, SPEED, SPEED);
@@ -84,6 +84,7 @@ int main(void)
 
 void sigHandler(int sigNo)
 {
+	printf("Caught SIGINT, exiting now\n");
 	move(STOP, 0, 0);
 	exit(sigNo);
 }
