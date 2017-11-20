@@ -63,7 +63,7 @@ int main(void)
 		
 		/* Stop */
 		move(STOP, 0, 0);
-		delay(1000);
+		delay(3000);
 	}
 
 	return 0;
@@ -100,12 +100,12 @@ void move(char dir, int speedA, int speedB)
 		case 'R':
 			turnR();
 			setSpeed(speedA, speedB);
-			delay(300);
+			delay(200);
 			break;
 		case 'L':
 			turnL();
 			setSpeed(speedA, speedB);
-			delay(300);
+			delay(200);
 			break;
 		case 'S':
 			stop();
