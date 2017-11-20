@@ -20,7 +20,7 @@
 
 /* Macros */
 #define MINRANGE	5
-#define SPEED		100
+#define SPEED		200
 #define FORWARD		'F'
 #define BACKWARD	'B'
 #define RIGHT		'R'
