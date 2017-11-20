@@ -58,6 +58,7 @@ int main(void)
 		/* Go back */
 		setDir(BACKWARD);
 		setSpeed(SPEED, SPEED);
+		delay(100);
 		
 		/* Turn right */
 		/*
@@ -74,11 +75,9 @@ int main(void)
 		*/
 		
 		/* Stop */
-		/*
 		setDir(STOP);
 		setSpeed(0, 0);
 		delay(1000);
-		*/
 	}
 
 	return 0;
