@@ -1,7 +1,7 @@
-#include <signal.h>
-#include <wiringPi.h>
 #include <stdio.h>
+#include <signal.h>
 #include <sys/time.h>
+#include <wiringPi.h>
 
 /* WiringPi pin numbering scheme */
 
