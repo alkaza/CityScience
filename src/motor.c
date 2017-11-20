@@ -5,20 +5,24 @@
 /* WiringPi pin numbering scheme */
 
 /* Motor driver pins */
+/* Motor A */
 #define MotorEnA	1
 #define MotorIn1	2
 #define MotorIn2	3
+/* Motor B */
 #define MotorEnB	23
 #define MotorIn3	22
 #define MotorIn4	21
 
-/* Macros */
-#define SPEED		200
+/* Directions */
 #define FORWARD		'F'
 #define BACKWARD	'B'
 #define RIGHT		'R'
 #define LEFT		'L'
 #define STOP		'S'
+
+/* Speed */
+#define SPEED		200 	// possible range 0~255 PWM
 
 /* Function declaration */
 void sigHandler (int sigNo);
