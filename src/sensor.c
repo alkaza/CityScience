@@ -21,7 +21,7 @@ int main(void)
 {
 	/* Ctrl-C handler */
 	if (signal(SIGINT, sigHandler) == SIG_ERR){
-		printf("exit\n");
+		perror("Error: cannot handle SIGINT\n");
 	}
 	
 	/* Setup code, runs once */
@@ -45,7 +45,8 @@ int main(void)
 
 void sigHandler(int sigNo)
 {
-	exit(sigNo);
+	printf("Caught SIGINT, exiting now\n");
+	exit(0);
 }
 
 void ultraInit(void)
