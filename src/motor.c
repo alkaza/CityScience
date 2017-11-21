@@ -9,24 +9,24 @@ int main(void)
 {
 	setup();
 	
-	// setSpeed(SPEED, SPEED);
+	setSpeed(SPEED, SPEED);
 	
 	while (1) {
 		//printf("go straight\n");
 		//setDir(FORWARD);
+		//delay(400);
 
 		//printf("go back\n");
 		//setDir(BACKWARD);
-		//delay(150);
+		//delay(200);
 		
 		printf("turn right\n");
 		setDir(RIGHT);
-		setSpeed(SPEED, SPEED);
 		delay(300);
 		
 		//printf("turn left\n");
 		//setDir(LEFT);
-		//delay(250);
+		//delay(300);
 		
 		/* Stop */
 		setDir(STOP);
