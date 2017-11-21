@@ -11,13 +11,10 @@ EXE = sensor motor track avoid
 #librobot : robot.o
 #	ar rcs $@.a $<
 	
-control : control.c
-	$(CC) $(CFLAGS) $< -o $@ $(LIBS)
-	
 all : $(EXE)
 	
 % : %.c
 	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS) $(LDLIBS) $(LIBS)
 	
 clean :
-	$(RM) $(EXE) control
+	$(RM) $(EXE)
