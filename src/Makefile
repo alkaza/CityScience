@@ -2,12 +2,12 @@ CC = gcc
 CFLAGS = -I. -Wall
 LDFLAGS = -static -L.
 LIBS = -lrobot
-EXE = sensor motor track avoid control
 
-all : $(EXE)
 
-$(EXE) : $(EXE).c
-	$(CC) $(CFLAGS) -o $(EXE) $(EXE).c $(LDFLAGS) $(LIBS)
+% : %.c
+	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS) $(LIBS)
+	
+all : sensor motor track avoid control
 
 robot : robot.c robot.h
 	gcc -c robot.c -o robot.o -lwiringPi
