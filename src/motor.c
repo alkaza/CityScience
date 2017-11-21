@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <wiringPi.h>
 #include "robot.h"
 
 /* Speed */
