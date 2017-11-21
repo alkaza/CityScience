@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -I. -Wall
 LDFLAGS = -static -L.
-LIBS = -lrobot
+LIBS = -lrobot -lwiringPi
 
 robot : robot.c robot.h
 	gcc -c robot.c -o robot.o -lwiringPi
