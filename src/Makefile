@@ -19,4 +19,4 @@ control : control.c
 all : sensor motor track avoid
 
 clean :
-	$(RM) $(EXE) *.o
+	$(RM) $(EXE) *.o *.a
