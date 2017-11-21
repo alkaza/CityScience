@@ -3,7 +3,8 @@
 #include "robot.h"
 
 /* Macros */
-#define MINDIST		10	// possible range 2~400 cm (3.3V)
+#define MINDIST		5	// possible range 2~400 cm (3.3V)
+#define MAXDIST		10
 #define SPEED		150 	// possible range 0~255 PWM
 
 int main(void)
@@ -18,11 +19,11 @@ int main(void)
 		delay(10);
 		
 		/* Modify here */
-		if ((dist < 10) && (dist > 5)) {
+		if ((dist < MAXDIST) && (dist > MINDIST)) {
     			printf("go straight\n");
 			setDir(FORWARD);
 		}
-		else if ((dist < 5) && (dist > 0)) {
+		else if ((dist < MINDIST) && (dist > 0)) {
     			printf("go straight\n");
 			setDir(BACKWARD);
 		}
