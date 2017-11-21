@@ -1,7 +1,7 @@
 #include "robot.h"
 
 /* Min range */
-#define MINRANGE	5	// possible range 2~400 cm (3.3V)
+#define MINRANGE	5 // possible range 2~400 cm (3.3V)
 
 int main(void)
 {
