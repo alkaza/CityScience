@@ -1,4 +1,4 @@
-# Program Discription
+# Program Description
 Get Source Code
 ```
 git clone https://github.com/alkaza/CityScience.git
@@ -22,13 +22,13 @@ Ctrl-C
 
 ## Working Principles
 ### DC Motor Driver
-PWM (pulse width modulation) allows us to adjust the average voltage value that controls the speed of motors.
-The technique is to turn the power ON and OFF at a fast rate. The average voltage depends on the duty cycle.
-Duty cycle is the amount of time the signal is ON versus OFF in a single period of time.
+  PWM (pulse width modulation) allows us to adjust the average voltage value that controls the speed of motors.
+  The technique is to turn the power ON and OFF at a fast rate. The average voltage depends on the duty cycle.
+  Duty cycle is the amount of time the signal is ON versus OFF in a single period of time.
 
-H-Bridge circuit contains four switching elements (transistors or MOSFETs), with the motor at the center.
-By activating two switches at a time we can change the direction of the current flow.
-That changes the rotation direction of the motor.
+  H-Bridge circuit contains four switching elements (transistors or MOSFETs), with the motor at the center.
+  By activating two switches at a time we can change the direction of the current flow.
+  That changes the rotation direction of the motor.
 
 - Input1 and Input2 pins are used for controlling the rotation direction of the motor A.
 - Input3 and Input4 pins are used for controlling the rotation direction of the motor B.
@@ -47,10 +47,10 @@ That changes the rotation direction of the motor.
 | Brake |   1   |   1   |   1   |   1   |   1   |   1   |
 
 ### Ultrasonic Sensor
-We write HIGH to Trig (output) pin for 10 usec to generate the ultrasound.
-That sends out an 8 cycle sonic burst which will travel at the speed of sound.
-The sound wave travels to an object and bounces back.
-Echo (input) pin reads the sound wave travel time in microsecons.
+  We write HIGH to Trig (output) pin for 10 usec to generate the ultrasound.
+  That sends out an 8 cycle sonic burst which will travel at the speed of sound.
+  The sound wave travels to an object and bounces back.
+  Echo (input) pin reads the sound wave travel time in microseconDs.
 
 - Speed of the sound = 	34000 cm/sec (or 0.034 cm/usec)
 - Time = distance / speed
@@ -78,7 +78,7 @@ Echo (input) pin reads the sound wave travel time in microsecons.
 | In4            | Physical Pin29 | Pin21    |        |
 | Gnd            | Physical Pin39 |          | Ground |
 
-**Important** : don't forget to connect Raspberry Pi ground to ground on the module to complete the circuit.
+**Important** : don't forget to connect Raspberry Pi GND to GND pin on the module to complete the circuit.
 
 ### Ultrasonic Sensor (HC-SR04)
 | Ultrasonic Sensor | Raspberry Pi 3 | WiringPi | Remark    |
@@ -88,4 +88,4 @@ Echo (input) pin reads the sound wave travel time in microsecons.
 | Echo              | Physical Pin18 | Pin5     |           |
 | Gnd               | Physical Pin20 |          | Ground    |
 
-**Important** : use 3.3V power supply for the sensor signal and Raspberry Pi GPIO voltages to match.
+**Important** : use Raspberry Pi 3.3V supply pin instead of 5V for the sensor signal and Raspberry Pi GPIO voltages to match.
