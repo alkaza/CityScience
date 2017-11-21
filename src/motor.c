@@ -1,4 +1,4 @@
-#include "motor.h"
+#include "robot.h"
 
 /* Speed */
 #define SPEED	200 // possible range 0~255 PWM
