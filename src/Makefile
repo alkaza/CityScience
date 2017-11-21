@@ -9,10 +9,13 @@ robot : robot.c robot.h
 librobot : robot.o
 	ar rcs librobot.a robot.o
 	
+control : control.c
+	$(CC) $(CFLAGS) -o $@ $< -lwiringPi
+	
 % : %.c
 	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS) $(LIBS)
 	
-all : sensor motor track avoid control
+all : sensor motor track avoid
 
 clean :
 	$(RM) $(EXE) *.o
