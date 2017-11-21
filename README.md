@@ -1,4 +1,5 @@
 # Program Description
+## Guidelines
 Get Source Code
 ```
 git clone https://github.com/alkaza/CityScience.git
@@ -26,7 +27,7 @@ Ctrl-C
 - Hand tracking
 - Obstacle avoidance
 
-Corresponding files : `motor.c track.c avoid.c` 
+**Corresponding files** : `motor.c track.c avoid.c` 
 
 ## Working Principles
 ### DC Motor Driver
