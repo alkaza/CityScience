@@ -22,8 +22,8 @@
 #define LEFT		  'L'
 #define STOP		  'S'
 
-
 /* Function declarations */
+void sigHandler (int sigNo);
 void motorInit  (void);
 void setSpeed   (int speedA, int speedB);
 void setDir     (char dir);
@@ -32,6 +32,13 @@ void goBW       (void);
 void turnR      (void);
 void turnL      (void);
 void stop       (void);
+
+void sigHandler(int sigNo)
+{
+	printf("Caught SIGINT, exiting now\n");
+	move(STOP, 0, 0);
+	exit(0);
+}
 
 void motorInit(void) 
 {
