@@ -2,8 +2,7 @@ CC = gcc
 CFLAGS = -I. -Wall
 LDFLAGS = -static -L.
 LIBS = -lrobot
-
-EXE : sensor motor track avoid control
+EXE = sensor motor track avoid control
 
 all : $(EXE)
 
