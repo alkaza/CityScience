@@ -16,7 +16,7 @@ control : control.c
 all : sensor motor track avoid
 	
 % : %.c
-	$(CC) $(CFLAGS) $< -o $@ $(LIBS) $(LDFLAGS)
+	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS) $(LDLIBS)
 	
 clean :
 	$(RM) $(EXE) control *.o *.a
