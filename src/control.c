@@ -29,12 +29,12 @@
 
 /* Other macros */
 #define MINRANGE	5	// possible range 2~400 cm (3.3V)
-#define SPEED		200 	// possible range 0~255 PWM
+#define SPEED		150 	// possible range 0~255 PWM
 
 /* Function declarations */
 void sigHandler	(int sigNo);
 void ultraInit	(void);
-float getRange	(void);
+float getDist	(void);
 void motorInit	(void);
 void setSpeed   (int speedA, int speedB);
 void setDir	(char dir);
@@ -62,16 +62,16 @@ int main(void)
 	
 	setSpeed(SPEED, SPEED);
 
-	float range;
+	float dist;
 
 	/* Main code, runs repeatedly */
 	while (1) {
-		range = getRange();
-		printf("range = %0.2f cm\n", range);
+		dist = getDist();
+		printf("dist = %0.2f cm\n", range);
 		delay(10);
 		
 		/* Modify here */
-		if ((range < MINRANGE) && (range > 0)) {
+		if ((dist < MINDIST) && (dist > 0)) {
 			printf("turn right\n");
 			setDir(RIGHT);
 		}
@@ -98,12 +98,12 @@ void ultraInit(void)
 	pinMode(Trig, OUTPUT);
 }
 
-float getRange(void)
+float getDist(void)
 {
 	struct timeval tv1;
 	struct timeval tv2;
 	long start, stop;
-	float range;
+	float dist;
 
 	digitalWrite(Trig, LOW);
 	delayMicroseconds(2);
@@ -121,10 +121,10 @@ float getRange(void)
 	start = tv1.tv_sec * 1000000 + tv1.tv_usec;
 	stop  = tv2.tv_sec * 1000000 + tv2.tv_usec;
 
-	range = (float)(stop - start) / 1000000 * 34000 / 2;
-	//range = (stop - start) * 34000 / 1000000 / 2;
+	dist = (float)(stop - start) / 1000000 * 34000 / 2;
+	//dist = (stop - start) * 34000 / 1000000 / 2;
 
-	return range;
+	return dist;
 }
 
 void motorInit(void) 
