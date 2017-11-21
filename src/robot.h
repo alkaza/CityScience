@@ -1,8 +1,8 @@
 #ifndef __ROBOT_H__
 #define __ROBOT_H__
 
-
 /* WiringPi pin numbering scheme */
+
 /* Ultrasonic sensor pins */
 #define Trig	4
 #define Echo	5
@@ -17,7 +17,7 @@
 #define MotorIn3	22
 #define MotorIn4	21
 
-/* Directions */
+/* Direction modes */
 #define FORWARD		'F'
 #define BACKWARD	'B'
 #define RIGHT		'R'
