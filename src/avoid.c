@@ -18,7 +18,7 @@ int main(void)
 		delay(10);
 		
 		/* Modify here */
-		if ((dist < MINRANGE) && (dist > 0)) {
+		if ((dist < MINDIST) && (dist > 0)) {
 			printf("turn right\n");
 			setDir(RIGHT);
 		}
