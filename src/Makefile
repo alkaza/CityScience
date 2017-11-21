@@ -4,12 +4,6 @@ LDFLAGS = -L.
 LDLIBS = -lrobot
 LIBS = -lwiringPi
 EXE = sensor motor track avoid
-
-#robot : robot.c robot.h
-#	gcc -c $< -o $@.o $(LIBS)
-
-#librobot : robot.o
-#	ar rcs $@.a $<
 	
 all : $(EXE)
 	
