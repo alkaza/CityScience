@@ -12,6 +12,10 @@ Compile
 ```
 make all
 ```
+Cleanup before recompiling
+```
+make clean
+```
 Run
 ```
 sudo ./motor
