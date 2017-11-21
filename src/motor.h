@@ -1,6 +1,7 @@
 #ifndef __MOTOR_H__
 #define __MOTOR_H__
 #include <stdio.h>
+#include <signal.h>
 #include <wiringPi.h>
 
 /* WiringPi pin numbering scheme */
@@ -23,6 +24,7 @@
 #define STOP		  'S'
 
 /* Function declarations */
+void setup	(void);
 void sigHandler (int sigNo);
 void motorInit  (void);
 void setSpeed   (int speedA, int speedB);
@@ -32,6 +34,20 @@ void goBW       (void);
 void turnR      (void);
 void turnL      (void);
 void stop       (void);
+
+void setup(void)
+{
+	/* Ctrl-C handler */
+	if (signal(SIGINT, sigHandler) == SIG_ERR){
+		perror("Error: cannot handle SIGINT\n");
+	}
+	
+	if (wiringPiSetup() == -1) {
+		exit(1);
+	}
+
+	motorInit();
+}
 
 void sigHandler(int sigNo)
 {
