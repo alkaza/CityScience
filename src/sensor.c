@@ -7,11 +7,11 @@ int main(void)
 {
 	setup();
 	
-	float range;
+	float dist;
 
 	while (1) {
-		range = getRange();
-		printf("range = %0.2f cm\n", range);
+		dist = getDist();
+		printf("dist = %0.2f cm\n", dist);
 		delay(1000);
 	}
 	
