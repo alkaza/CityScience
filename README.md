@@ -1,9 +1,10 @@
 ## Program Discription
-#### Get source code
+### Geting Started
+#### Get Source Code
 ```
 git clone https://github.com/alkaza/CityScience.git
 ```
-#### Enter source directory
+#### Enter Source Directory
 ```
 cd CityScience/src
 ```
@@ -20,53 +21,49 @@ sudo ./control
 Ctrl-C
 ```
 
+### Working Principles
+#### DC Motor Driver
+| State |  EnA  |  In1  |  In2  |  In3  |  In4  |  EnB  |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Front |   1   |   1   |   0   |   1   |   0   |   1   |
+| Back  |   1   |   0   |   1   |   0   |   1   |   1   |
+| Right |   1   |   1   |   0   |   1   |   0   |   1   |
+| Left  |   1   |   1   |   0   |   0   |   1   |   1   |
+| Brake |   1   |   0   |   1   |   1   |   0   |   1   |
+| Brake |   1   |   1   |   1   |   1   |   1   |   1   |
+| Stop  |   0   |   X   |   X   |   X   |   X   |   0   |
+#### Ultrasonic Sensor
 
 ## Wiring Raspberry Pi 3 Model B V1.2
-
 ### DC Motor Driver L296N
-```
-Raspberry Pi 3 - DC Motor Driver
-
-Physical Pin12 - EnA (BCM Pin18, WiringPi Pin1, PWM0)
-Physical Pin13 - In1 (BCM Pin27, WiringPi Pin2)
-Physical Pin15 - In2 (BCM Pin22, WiringPi Pin3)
-
-Physical Pin33 - EnB (BCM Pin13, WiringPi Pin23, PWM1)
-Physical Pin21 - In3 (BCM Pin6,  WiringPi Pin22)
-Physical Pin29 - In4 (BCM Pin5,  WiringPi Pin21)
-
-Physical Pin39 - Gnd (Ground)
-```
+|DC Motor Driver | Raspberry Pi 3 | WiringPi | Remark |
+| :------------: | :------------: | :------: | :----: |
+| EnA            | Physical Pin12 | Pin1     | PWM0   |
+| In1            | Physical Pin13 | Pin2     |        |
+| In2            | Physical Pin15 | Pin3     |        |
+| EnB            | Physical Pin33 | Pin23    | PWM1   |
+| In3            | Physical Pin21 | Pin22    |        |
+| In4            | Physical Pin29 | Pin21    |        |
+| Gnd            | Physical Pin39 |          | Ground |
 
 #### Important
-```
-DC Motor Driver Vcc - Vcc Battery Holder
+|DC Motor Driver | Connection            ||
+| :------------: | :---: | :------------: |
+| Vcc            | Vcc   | Battery Holder |
+| Gnd            | Gnd   | Battery Holder |
+| Gnd            | Gnd   | Raspberry Pi 3 |
 
-                    / Gnd Battery Holder
-DC Motor Driver Gnd
-                    \ Gnd Raspberry Pi 3
-```
 
 ### Ultrasonic Sensor HC-SR04
-```
-Raspberry Pi 3 - Ultrasonic Sensor
+| Ultrasonic Sensor | Raspberry Pi 3 | WiringPi | Remark    |
+| :---------------: | :------------: | :------: | :-------: |
+| Vcc               | Physical Pin2  |          | 3v3 Power |
+| Trig              | Physical Pin16 | Pin4     |           |
+| Echo              | Physical Pin18 | Pin5     |           |
+| Gnd               | Physical Pin20 |          | Ground    |
 
-Physical Pin2  - Vcc  (3v3 Power)
-Physical Pin16 - Trig (BCM Pin23, WiringPi Pin4)
-Physical Pin18 - Echo (BCM Pin24, WiringPi Pin5)
-Physical Pin20 - Gnd  (Ground)
-```
-
-#### Note
-- **Physical**  - Number corresponding to the pin's physical location on the header
-- **BCM** - Broadcom pin number, commonly called "GPIO", these are the ones you probably want to use with RPi.GPIO and GPIO Zero
-- **WiringPi**  - Wiring Pi pin number (shown as a tooltip), for Gordon Henderson's Wiring Pi library
-
-#### Raspberry Pi Pinout
-https://pinout.xyz/
 
 ## Power Supplies
-
 ### Raspberry Pi 3
 #### Power Bank
 - Capacity : 5200mAh 
