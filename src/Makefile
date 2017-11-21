@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -I. -Wall
-LDFLAGS = -static
+LDFLAGS = -L.
 LDLIBS = -lrobot
 LIBS = -lwiringPi
 
