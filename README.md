@@ -26,7 +26,7 @@ Ctrl-C
 - Hand tracking
 - Obstacle avoidance
 
- Skeletons : `motor.c track.c avoid.c` 
+Corresponding files : `motor.c track.c avoid.c` 
 
 ## Working Principles
 ### DC Motor Driver
