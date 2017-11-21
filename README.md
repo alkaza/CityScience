@@ -1,10 +1,10 @@
-# Program Description
+# Overview
 ## Guidelines
 Get Source Code
 ```
-git clone https://github.com/alkaza/CityScience.git
+git clone https://github.com/alkaza/RPiRobot.git
 ```
-Go to Source Directory
+Go to the Code Directory
 ```
 cd CityScience/src
 ```
@@ -16,11 +16,11 @@ Cleanup before recompiling
 ```
 make clean
 ```
-Run
+Run the program
 ```
 sudo ./motor
 ```
-Terminate
+Terminate the program
 ```
 Ctrl-C
 ```
