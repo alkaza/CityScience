@@ -22,12 +22,13 @@ Ctrl-C
 ```
 
 ## Experiments
+- Measuring distance
 - Going forward and backward 
 - Turning right and left
 - Hand tracking
 - Obstacle avoidance
 
-**Corresponding files** : `motor.c track.c avoid.c` 
+**Corresponding files** : `sensor.c motor.c track.c avoid.c` 
 
 ## Working Principles
 ### DC Motor Driver
