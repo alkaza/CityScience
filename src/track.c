@@ -24,7 +24,7 @@ int main(void)
 		}
 		else if ((dist < 5) && (dist > 0)) {
     			printf("go straight\n");
-			setDir(FORWARD);
+			setDir(BACKWARD);
 		}
 		else {
 			printf("stop\n");
