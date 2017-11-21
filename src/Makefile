@@ -10,10 +10,10 @@ all : $(EXE)
 $(EXE) : $(EXE).c
 	$(CC) $(CFLAGS) -o $(EXE) $(EXE).c $(LDFLAGS) $(LIBS)
 
-robot.o : robot.c robot.h
+robot : robot.c robot.h
 	gcc -c robot.c -o robot.o -lwiringPi
 
-librobot.a : robot.o
+librobot : robot.o
 	ar rcs librobot.a robot.o
 
 clean :
