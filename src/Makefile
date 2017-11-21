@@ -8,7 +8,7 @@ EXE : sensor motor track avoid control
 all : $(EXE)
 
 $(EXE) : $(EXE).c
-        $(CC) $(CFLAGS) -o $(EXE) $(EXE).c $(LDFLAGS) $(LIBS)
+	$(CC) $(CFLAGS) -o $(EXE) $(EXE).c $(LDFLAGS) $(LIBS)
 
 robot.o : robot.c robot.h
 	gcc -c robot.c -o robot.o -lwiringPi
