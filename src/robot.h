@@ -1,10 +1,14 @@
-#ifndef __MOTOR_H__
-#define __MOTOR_H__
-#include <stdio.h>
+#ifndef __ROBOT_H__
+#define __ROBOT_H__
 #include <signal.h>
+#include <stdio.h>
 #include <wiringPi.h>
+#include <sys/time.h>
 
 /* WiringPi pin numbering scheme */
+/* Ultrasonic sensor pins */
+#define Trig	4
+#define Echo	5
 
 /* Motor driver pins */
 /* Motor A */
@@ -26,6 +30,8 @@
 /* Function declarations */
 void setup	(void);
 void sigHandler (int sigNo);
+void ultraInit	(void);
+float getRange	(void);
 void motorInit  (void);
 void setSpeed   (int speedA, int speedB);
 void setDir     (char dir);
@@ -46,14 +52,51 @@ void setup(void)
 		exit(1);
 	}
 
+	ultraInit();
 	motorInit();
 }
 
 void sigHandler(int sigNo)
 {
 	printf("Caught SIGINT, exiting now\n");
-	move(STOP, 0, 0);
+	setDir(STOP);
+	setSpeed(0, 0);
 	exit(0);
+}
+
+void ultraInit(void)
+{
+	pinMode(Echo, INPUT);
+	pinMode(Trig, OUTPUT);
+}
+
+float getRange(void)
+{
+	struct timeval tv1;
+	struct timeval tv2;
+	long start, stop;
+	float range;
+
+	digitalWrite(Trig, LOW);
+	delayMicroseconds(2);
+
+	digitalWrite(Trig, HIGH);
+	delayMicroseconds(10);
+	digitalWrite(Trig, LOW);
+
+	while (!(digitalRead(Echo) == 1));
+	gettimeofday(&tv1, NULL);
+
+	while (!(digitalRead(Echo) == 0));
+	gettimeofday(&tv2, NULL);
+
+	start = tv1.tv_sec * 1000000 + tv1.tv_usec;
+	stop  = tv2.tv_sec * 1000000 + tv2.tv_usec;
+
+	range = (float)(stop - start) / 1000000 * 34000 / 2;
+	//range = (stop - start) * 34000 / 1000000 / 2;
+
+	return range;
 }
 
 void motorInit(void) 
