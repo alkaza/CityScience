@@ -3,6 +3,7 @@ CFLAGS = -I. -Wall
 LDFLAGS = -L.
 LDLIBS = -lrobot
 LIBS = -lwiringPi
+EXE = sensor motor track avoid
 
 #robot : robot.c robot.h
 #	gcc -c $< -o $@.o $(LIBS)
@@ -13,7 +14,7 @@ LIBS = -lwiringPi
 control : control.c
 	$(CC) $(CFLAGS) $< -o $@ $(LIBS)
 	
-all : sensor motor track avoid
+all : $(EXE)
 	
 % : %.c
 	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS) $(LDLIBS) $(LIBS)
