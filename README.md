@@ -38,13 +38,13 @@ That changes the rotation direction of the motor.
 
 | State |  EnA  |  In1  |  In2  |  In3  |  In4  |  EnB  |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Front |   1   |   1   |   0   |   1   |   0   |   1   |
-| Back  |   1   |   0   |   1   |   0   |   1   |   1   |
-| Right |   1   |   1   |   0   |   1   |   0   |   1   |
-| Left  |   1   |   1   |   0   |   0   |   1   |   1   |
-| Brake |   1   |   0   |   1   |   1   |   0   |   1   |
-| Brake |   1   |   1   |   1   |   1   |   1   |   1   |
 | Stop  |   0   |   x   |   x   |   x   |   x   |   0   |
+| Brake |   1   |   0   |   0   |   0   |   0   |   1   |
+| Back  |   1   |   0   |   1   |   0   |   1   |   1   |
+| Left  |   1   |   0   |   1   |   1   |   0   |   1   |
+| Right |   1   |   1   |   0   |   0   |   1   |   1   |
+| Front |   1   |   1   |   0   |   1   |   0   |   1   |
+| Brake |   1   |   1   |   1   |   1   |   1   |   1   |
 
 ### Ultrasonic Sensor
 We write HIGH to Trig (output) pin for 10 usec to generate the ultrasound.
