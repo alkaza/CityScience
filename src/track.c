@@ -3,7 +3,7 @@
 #include "robot.h"
 
 /* Macros */
-#define MINRANGE	5	// possible range 2~400 cm (3.3V)
+#define MINRANGE	10	// possible range 2~400 cm (3.3V)
 #define SPEED		150 	// possible range 0~255 PWM
 
 int main(void)
@@ -18,7 +18,7 @@ int main(void)
 		delay(10);
 		
 		/* Modify here */
-		if ((dist < MINRANGE) && (dist > 0)) {
+		if ((dist < MINRANGE) && (dist > 5)) {
     			printf("go straight\n");
 			setDir(FORWARD);
 		}
