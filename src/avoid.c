@@ -4,7 +4,7 @@
 
 /* Macros */
 #define MINRANGE	5	// possible range 2~400 cm (3.3V)
-#define SPEED		200 	// possible range 0~255 PWM
+#define SPEED		150 	// possible range 0~255 PWM
 
 int main(void)
 {
