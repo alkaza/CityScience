@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -I. -Wall
-LDFLAGS = -static -L.
+LDFLAGS = -static
 LDLIBS = -lrobot
 LIBS = -lwiringPi
 
@@ -16,7 +16,7 @@ control : control.c
 all : sensor motor track avoid
 	
 % : %.c
-	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS) $(LDLIBS)
+	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS) $(LDLIBS) $(LIBS)
 	
 clean :
 	$(RM) $(EXE) control *.o *.a
