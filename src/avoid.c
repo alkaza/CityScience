@@ -7,16 +7,16 @@
 int main(void)
 {
 	setup();
-	float range;
+	float dist;
 	setSpeed(SPEED, SPEED);
 	
 	while (1) {
-		range = getRange();
-		printf("range = %0.2f cm\n", range);
+		dist = getDist();
+		printf("dist = %0.2f cm\n", dist);
 		delay(10);
 		
 		/* Modify here */
-		if ((range < MINRANGE) && (range > 0)) {
+		if ((dist < MINRANGE) && (dist > 0)) {
 			printf("turn right\n");
 			setDir(RIGHT);
 		}
