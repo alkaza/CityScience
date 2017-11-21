@@ -15,6 +15,15 @@ Physical Pin29 - In4 (BCM Pin5,  WiringPi Pin21)
 Physical Pin39 - Gnd (Ground)
 ```
 
+#### Note
+```
+DC Motor Driver Vcc - Vcc Battery Holder
+
+                    / Gnd Battery Holder
+DC Motor Driver Gnd
+                    \ Gnd Raspberry Pi 3
+```
+
 ### Ultrasonic Sensor HC-SR04
 ```
 Raspberry Pi 3 - Ultrasonic Sensor
@@ -44,11 +53,4 @@ https://pinout.xyz/
 #### AAx6 Battery Holder
 - Capacity : 1.5V x 6 = 9V
 
-#### Note:
-```
-DC Motor Driver Vcc - Vcc Battery Holder
 
-                    / Gnd Battery Holder
-DC Motor Driver Gnd
-                    \ Gnd Raspberry Pi 3
-```
