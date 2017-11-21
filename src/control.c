@@ -1,7 +1,7 @@
-#include <stdio.h>
 #include <signal.h>
-#include <sys/time.h>
+#include <stdio.h>
 #include <wiringPi.h>
+#include <sys/time.h>
 
 /* WiringPi pin numbering scheme */
 
@@ -36,8 +36,8 @@ void sigHandler	(int sigNo);
 void ultraInit	(void);
 float getRange	(void);
 void motorInit	(void);
-void move	(char dir, int speedA, int speedB);
 void setSpeed   (int speedA, int speedB);
+void setDir	(char dir);
 void goFW       (void);
 void goBW       (void);
 void turnR      (void);
@@ -59,6 +59,8 @@ int main(void)
 
 	motorInit();
 	ultraInit();
+	
+	setSpeed(SPEED, SPEED);
 
 	float range;
 
@@ -71,11 +73,11 @@ int main(void)
 		/* Modify here */
 		if ((range < MINRANGE) && (range > 0)) {
 			printf("turn right\n");
-			move(RIGHT, SPEED, SPEED);
+			setDir(RIGHT);
 		}
 		else {
 			printf("go straight\n");
-			move(FORWARD, SPEED, SPEED);
+			setDir(FORWARD);
 		}
 	}
 
@@ -85,18 +87,9 @@ int main(void)
 void sigHandler(int sigNo)
 {
 	printf("Caught SIGINT, exiting now\n");
-	move(STOP, 0, 0);
+	setDir(STOP);
+	setSpeed(0, 0);
 	exit(sigNo);
-}
-
-void motorInit(void) 
-{
-	pinMode(MotorIn1, OUTPUT);
-	pinMode(MotorIn2, OUTPUT);
-	pinMode(MotorIn3, OUTPUT);
-	pinMode(MotorIn4, OUTPUT);
-	pinMode(MotorEnA, PWM_OUTPUT);
-	pinMode(MotorEnB, PWM_OUTPUT);
 }
 
 void ultraInit(void)
@@ -134,36 +127,41 @@ float getRange(void)
 	return range;
 }
 
-void move(char dir, int speedA, int speedB) 
+void motorInit(void) 
 {
-	switch (dir) {
-		case 'F':
-			goFW();
-			setSpeed(speedA, speedB);
-			break;
-		case 'B':
-			goBW();
-			setSpeed(speedA, speedB);
-			break;
-		case 'R':
-			turnR();
-			setSpeed(speedA, speedB);
-			break;
-		case 'L':
-			turnL();
-			setSpeed(speedA, speedB);
-			break;
-		case 'S':
-			stop();
-			setSpeed(speedA, speedB);
-			break;
-	}
+	pinMode(MotorIn1, OUTPUT);
+	pinMode(MotorIn2, OUTPUT);
+	pinMode(MotorIn3, OUTPUT);
+	pinMode(MotorIn4, OUTPUT);
+	pinMode(MotorEnA, PWM_OUTPUT);
+	pinMode(MotorEnB, PWM_OUTPUT);
 }
 
 void setSpeed(int speedA, int speedB) 
 {
 	pwmWrite (MotorEnA, speedA);
 	pwmWrite (MotorEnB, speedB);
+}
+
+void setDir(char dir) 
+{
+	switch (dir) {
+		case 'F':
+			goFW();
+			break;
+		case 'B':
+			goBW();
+			break;
+		case 'R':
+			turnR();
+			break;
+		case 'L':
+			turnL();
+			break;
+		case 'S':
+			stop();
+			break;
+	}
 }
 
 void goFW(void) 
