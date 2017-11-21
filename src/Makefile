@@ -5,16 +5,16 @@ LDLIBS = -lrobot
 LIBS = -lwiringPi
 
 robot : robot.c robot.h
-	gcc -c robot.c -o robot.o $(LIBS)
+	gcc -c $< -o $@.o $(LIBS)
 
 librobot : robot.o
-	ar rcs librobot.a robot.o
+	ar rcs $@.a $<
 	
 control : control.c
-	$(CC) $(CFLAGS) -o $@ $< $(LIBS)
+	$(CC) $(CFLAGS) $< -o $@ $(LIBS)
 	
 % : %.c
-	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS) $(LDLIBS) $(LIBS)
+	$(CC) $(CFLAGS) $< -o $@ $(LIBS) $(LDFLAGS) $(LDLIBS) 
 	
 all : sensor motor track avoid
 
