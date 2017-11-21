@@ -18,7 +18,11 @@ int main(void)
 		delay(10);
 		
 		/* Modify here */
-		if ((dist < MINRANGE) && (dist > 5)) {
+		if ((dist < 10) && (dist > 5)) {
+    			printf("go straight\n");
+			setDir(FORWARD);
+		}
+		else if ((dist < 5) && (dist > 0)) {
     			printf("go straight\n");
 			setDir(FORWARD);
 		}
