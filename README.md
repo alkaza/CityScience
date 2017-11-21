@@ -32,3 +32,23 @@ Physical Pin20 - Gnd  (Ground)
 
 #### Raspberry Pi Pinout
 https://pinout.xyz/
+
+## Power Supplies
+
+### Raspberry Pi 3
+#### Power Bank
+- Capacity : 5200mAh 
+- Output : 5V 2A
+
+### DC Motor Driver
+#### AAx6 Battery Holder
+- Capacity : 1.5V x 6 = 9V
+
+#### Note:
+```
+DC Motor Driver Vcc - Vcc Battery Holder
+
+                    / Gnd Battery Holder
+DC Motor Driver Gnd
+                    \ Gnd Raspberry Pi 3
+```
