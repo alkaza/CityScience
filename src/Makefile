@@ -13,10 +13,10 @@ librobot : robot.o
 control : control.c
 	$(CC) $(CFLAGS) $< -o $@ $(LIBS)
 	
+all : sensor motor track avoid
+	
 % : %.c
 	$(CC) $(CFLAGS) $< -o $@ $(LIBS) $(LDFLAGS) $(LDLIBS) 
 	
-all : sensor motor track avoid
-
 clean :
-	$(RM) $(EXE) *.o *.a
+	$(RM) $(EXE) control *.o *.a
