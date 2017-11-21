@@ -29,7 +29,7 @@ extern void setup	(void);
 extern void sigHandler (int sigNo);
 
 extern void ultraInit	(void);
-extern float getRange	(void);
+extern float getDist	(void);
 
 extern void motorInit  (void);
 extern void setSpeed   (int speedA, int speedB);
