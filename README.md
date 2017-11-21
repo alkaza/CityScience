@@ -1,28 +1,41 @@
-## Program Discription
-### Geting Started
-#### Get Source Code
+# Program Discription
+Get Source Code
 ```
 git clone https://github.com/alkaza/CityScience.git
 ```
-#### Enter Source Directory
+Go to Source Directory
 ```
 cd CityScience/src
 ```
-#### Compile
+Compile
 ```
 make all
 ```
-#### Run
+Run
 ```
-sudo ./control
+sudo ./motor
 ```
-#### Terminate
+Terminate
 ```
 Ctrl-C
 ```
 
-### Working Principles
-#### DC Motor Driver
+## Working Principles
+### DC Motor Driver
+PWM (pulse width modulation) allows us to adjust the average voltage value that controls the speed of motors.
+The technique is to turn the power ON and OFF at a fast rate. The average voltage depends on the duty cycle.
+Duty cycle is the amount of time the signal is ON versus OFF in a single period of time.
+
+H-Bridge circuit contains four switching elements (transistors or MOSFETs), with the motor at the center.
+By activating two switches at a time we can change the direction of the current flow.
+That changes the rotation direction of the motor.
+
+- Input1 and Input2 pins are used for controlling the rotation direction of the motor A.
+- Input3 and Input4 pins are used for controlling the rotation direction of the motor B.
+- EnableA and EnableB pins are used for enabling and controlling the speed of motors with PWM input.
+
+Possible speed range : 0~255 PWM
+
 | State |  EnA  |  In1  |  In2  |  In3  |  In4  |  EnB  |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Front |   1   |   1   |   0   |   1   |   0   |   1   |
@@ -32,10 +45,29 @@ Ctrl-C
 | Brake |   1   |   0   |   1   |   1   |   0   |   1   |
 | Brake |   1   |   1   |   1   |   1   |   1   |   1   |
 | Stop  |   0   |   X   |   X   |   X   |   X   |   0   |
-#### Ultrasonic Sensor
 
-## Wiring Raspberry Pi 3 Model B V1.2
-### DC Motor Driver L296N
+### Ultrasonic Sensor
+We write HIGH to Trig (output) pin for 10 usec to generate the ultrasound.
+That sends out an 8 cycle sonic burst which will travel at the speed of sound.
+The sound wave travels to an object and bounces back.
+Echo (input) pin reads the sound wave travel time in microsecons.
+
+- Speed of the sound = 	34000 cm/sec (or 0.034 cm/usec)
+- Time = distance / speed
+- Distance = time * speed / 2
+
+Possible distance range : 2~400 cm (3.3V)
+
+### Power Supplies
+**Raspberry Pi 3 - Power Bank**
+- Capacity : 5200mAh 
+- Output : 5V 2A
+
+**DC Motor Driver - AAx6 Battery Holder**
+- Capacity : 1.5V x 6 = 9V
+
+## Wiring Raspberry Pi 3 (Model B V1.2)
+### DC Motor Driver (L296N)
 |DC Motor Driver | Raspberry Pi 3 | WiringPi | Remark |
 | :------------: | :------------: | :------: | :----: |
 | EnA            | Physical Pin12 | Pin1     | PWM0   |
@@ -46,15 +78,9 @@ Ctrl-C
 | In4            | Physical Pin29 | Pin21    |        |
 | Gnd            | Physical Pin39 |          | Ground |
 
-#### Important
-|DC Motor Driver | Connection            ||
-| :------------: | :---: | :------------: |
-| Vcc            | Vcc   | Battery Holder |
-| Gnd            | Gnd   | Battery Holder |
-| Gnd            | Gnd   | Raspberry Pi 3 |
+**Important** : connect motor driver ground to power supply and Raspberry Pi grounds to complete the circuit.
 
-
-### Ultrasonic Sensor HC-SR04
+### Ultrasonic Sensor (HC-SR04)
 | Ultrasonic Sensor | Raspberry Pi 3 | WiringPi | Remark    |
 | :---------------: | :------------: | :------: | :-------: |
 | Vcc               | Physical Pin2  |          | 3v3 Power |
@@ -62,13 +88,7 @@ Ctrl-C
 | Echo              | Physical Pin18 | Pin5     |           |
 | Gnd               | Physical Pin20 |          | Ground    |
 
+**Important** : connect to 3.3V power for sensor signal and Raspberry Pi GPIO voltages to match.
 
-## Power Supplies
-### Raspberry Pi 3
-#### Power Bank
-- Capacity : 5200mAh 
-- Output : 5V 2A
+*Otherwise, use voltage divider.*
 
-### DC Motor Driver
-#### AAx6 Battery Holder
-- Capacity : 1.5V x 6 = 9V
