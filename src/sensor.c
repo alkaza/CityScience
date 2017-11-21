@@ -2,9 +2,6 @@
 #include <wiringPi.h>
 #include "robot.h"
 
-/* Min range */
-#define MINDIST	5 // possible range 2~400 cm (3.3V)
-
 int main(void)
 {
 	setup();
