@@ -1,19 +1,13 @@
-all : sensor motor track avoid control
+CC = gcc
+CFLAGS = -I . -Wall
+LIBS = -lwiringPi
 
-sensor : sensor.c robot.h
-	gcc -I. -Wall -o sensor sensor.c -lwiringPi
+EXE : sensor motor track avoid control
 
-motor : motor.c robot.h
-	gcc -I. -Wall -o motor motor.c -lwiringPi
-	
-track : track.c robot.h
-	gcc -I. -Wall -o track track.c -lwiringPi
-	
-avoid : avoid.c robot.h
-	gcc -I. -Wall -o avoid avoid.c -lwiringPi
+all : $(EXE)
 
-control : control.c
-	gcc -I. -Wall -o control control.c -lwiringPi
-	
+$(EXE) : $(EXE).c
+        $(CC) $(CFLAGS) -o $(EXE) $(EXE).c $(LIBS)
+
 clean :
-	-rm -f sensor motor track avoid control
+	$(RM) $(EXE)
