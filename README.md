@@ -44,7 +44,7 @@ That changes the rotation direction of the motor.
 | Left  |   1   |   1   |   0   |   0   |   1   |   1   |
 | Brake |   1   |   0   |   1   |   1   |   0   |   1   |
 | Brake |   1   |   1   |   1   |   1   |   1   |   1   |
-| Stop  |   0   |   X   |   X   |   X   |   X   |   0   |
+| Stop  |   0   |   x   |   x   |   x   |   x   |   0   |
 
 ### Ultrasonic Sensor
 We write HIGH to Trig (output) pin for 10 usec to generate the ultrasound.
