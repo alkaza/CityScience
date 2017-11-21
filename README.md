@@ -20,6 +20,14 @@ Terminate
 Ctrl-C
 ```
 
+## Experiments
+- Going forward and backward 
+- Turning right and left
+- Hand tracking
+- Obstacle avoidance
+
+ Skeletons : `motor.c track.c avoid.c` 
+
 ## Working Principles
 ### DC Motor Driver
   PWM (pulse width modulation) allows us to adjust the average voltage value that controls the speed of motors.
