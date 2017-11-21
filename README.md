@@ -15,7 +15,7 @@ Physical Pin29 - In4 (BCM Pin5,  WiringPi Pin21)
 Physical Pin39 - Gnd (Ground)
 ```
 
-#### Note
+#### Important
 ```
 DC Motor Driver Vcc - Vcc Battery Holder
 
