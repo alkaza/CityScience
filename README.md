@@ -8,7 +8,7 @@ Go to the Code Directory
 ```
 cd CityScience/src
 ```
-Compile
+Compile the program
 ```
 make all
 ```
