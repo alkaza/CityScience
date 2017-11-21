@@ -1,3 +1,26 @@
+## Program Discription
+#### Get source code
+```
+git clone https://github.com/alkaza/CityScience.git
+```
+#### Enter source directory
+```
+cd CityScience/src
+```
+#### Compile
+```
+make all
+```
+#### Run
+```
+sudo ./control
+```
+#### Terminate
+```
+Ctrl-C
+```
+
+
 ## Wiring Raspberry Pi 3 Model B V1.2
 
 ### DC Motor Driver L296N
@@ -52,5 +75,3 @@ https://pinout.xyz/
 ### DC Motor Driver
 #### AAx6 Battery Holder
 - Capacity : 1.5V x 6 = 9V
-
-
