@@ -34,7 +34,7 @@ That changes the rotation direction of the motor.
 - Input3 and Input4 pins are used for controlling the rotation direction of the motor B.
 - EnableA and EnableB pins are used for enabling and controlling the speed of motors with PWM input.
 
-Possible speed range : 0~255 PWM
+**Possible speed range** : 0~255 PWM
 
 | State |  EnA  |  In1  |  In2  |  In3  |  In4  |  EnB  |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -56,7 +56,7 @@ Echo (input) pin reads the sound wave travel time in microsecons.
 - Time = distance / speed
 - Distance = time * speed / 2
 
-Possible distance range : 2~400 cm (3.3V)
+**Possible distance range** : 2~400 cm (3.3V)
 
 ### Power Supplies
 **Raspberry Pi 3 - Power Bank**
@@ -78,7 +78,7 @@ Possible distance range : 2~400 cm (3.3V)
 | In4            | Physical Pin29 | Pin21    |        |
 | Gnd            | Physical Pin39 |          | Ground |
 
-**Important** : connect motor driver ground to power supply and Raspberry Pi grounds to complete the circuit.
+**Important** : don't forget to connect Raspberry Pi ground to ground on the module to complete the circuit.
 
 ### Ultrasonic Sensor (HC-SR04)
 | Ultrasonic Sensor | Raspberry Pi 3 | WiringPi | Remark    |
@@ -88,7 +88,4 @@ Possible distance range : 2~400 cm (3.3V)
 | Echo              | Physical Pin18 | Pin5     |           |
 | Gnd               | Physical Pin20 |          | Ground    |
 
-**Important** : connect to 3.3V power for sensor signal and Raspberry Pi GPIO voltages to match.
-
-*Otherwise, use voltage divider.*
-
+**Important** : use 3.3V power supply for the sensor signal and Raspberry Pi GPIO voltages to match.
