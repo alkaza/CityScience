@@ -1,7 +1,7 @@
-#include <signal.h>
 #include <stdio.h>
-#include <wiringPi.h>
 #include <sys/time.h>
+#include <signal.h>
+#include <wiringPi.h>
 #include "robot.h"
 
 void setup(void)
