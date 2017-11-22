@@ -22,10 +22,10 @@
 #define LEFT  'L'
 
 /* Track flags */
-extern volatile int turningR = 0;
-extern volatile int turningL = 0;
-extern volatile int goingFW = 0;
-extern volatile int goingBW = 0;
+extern volatile int turningR;
+extern volatile int turningL;
+extern volatile int goingFW;
+extern volatile int goingBW;
 /* Track current speed */
 extern volatile int speed;
 
