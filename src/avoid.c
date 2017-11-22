@@ -18,7 +18,7 @@ int main(void)
 	while (1) {
 		dist = getDist();
 		printf("dist = %0.2f cm\n", dist);
-		printf("speed = %u", speed);
+		printf("speed = %d", speed);
 		delay(10);
 		
 		/* Modify here */
