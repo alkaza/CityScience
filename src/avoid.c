@@ -18,7 +18,7 @@ int main(void)
 	while (1) {
 		dist = getDist();
 		printf("dist = %0.2f cm\n", dist);
-		printf("speed = %d", speed);
+		printf("speed = %d\n", speed);
 		delay(10);
 		
 		/* Modify here */
@@ -26,6 +26,7 @@ int main(void)
 			if (turning && (speed > 100)) {
 				speed=-10;
 				setSpeed(speed, speed);
+				return;
 			}
 			else {
 				straight = 0;
@@ -42,11 +43,14 @@ int main(void)
 			if (straight && (speed > 100)) {
 				speed=-10;
 				setSpeed(speed, speed);
+				return;
 			}
 			else {	
 				turning = 0;
 				straight = 1;
 				speed = SPEED;
+				setSpeed(0, 0);
+				delay(500);
 				printf("go straight\n");
 				setDir(FORWARD);
 				setSpeed(speed, speed);
