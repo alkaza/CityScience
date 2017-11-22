@@ -22,36 +22,40 @@ int main(void)
 		
 		/* Modify here */
 		if ((dist < MINDIST) && (dist > 0)) {
-			if (turning == 1) {
+			if (turning) {
 				if (speed < 50){
-					speed -= 1;
-					setSpeed(speed, speed);
+					speed-=1;
 				}
+				setSpeed(speed, speed);
 			}
 			else {
 				straight = 0;
 				turning = 1;
 				speed = SPEED;
+				
 				setSpeed(0, 0);
 				delay(500);
+				
 				printf("turn right\n");
 				setDir(RIGHT);
 				setSpeed(speed, speed);
 			}
 		}
 		else {
-			if (straight == 1) {
+			if (straight) {
 				if (speed < 50){
-					speed -= 1;
-					setSpeed(speed, speed);
+					speed-=1;
 				}
+				setSpeed(speed, speed);
 			}
 			else {	
 				turning = 0;
 				straight = 1;
 				speed = SPEED;
+				
 				setSpeed(0, 0);
 				delay(500);
+				
 				printf("go straight\n");
 				setDir(FORWARD);
 				setSpeed(speed, speed);
