@@ -96,7 +96,7 @@ Ctrl-C
 ### Ultrasonic Sensor (HC-SR04)
 | Ultrasonic Sensor | Raspberry Pi 3 | WiringPi | Remark    |
 | :---------------: | :------------: | :------: | :-------: |
-| Vcc               | Physical Pin2  |          | 3v3 Power |
+| Vcc               | Physical Pin1  |          | 3v3 Power |
 | Trig              | Physical Pin16 | Pin4     |           |
 | Echo              | Physical Pin18 | Pin5     |           |
 | Gnd               | Physical Pin20 |          | Ground    |
