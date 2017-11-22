@@ -6,59 +6,26 @@
 #define MINDIST		10	// possible range 2~400 cm (3.3V)
 #define MAXSPEED	120 	// possible range 0~255 PWM
 #define MINSPEED	60
-#define BRAKE		0
-
-int turning = 0;
-int straight = 0;
-int speed = MAXSPEED;
 
 int main(void)
 {
 	setup();
+	min_speed(MINSPEED);
+	max_speed(MAXSPEED);
 	float dist;
 	while (1) {
-		dist = getDist();
+		dist = calc_dist();
+		/* Debugging */
 		printf("dist = %0.2f cm\n", dist);
 		printf("speed = %d\n", speed);
 		delay(10);
 		
 		/* Modify here */
 		if ((dist < MINDIST) && (dist > 0)) {
-			if (turning) {
-				if (speed > MINSPEED){
-					speed-=1;
-				}
-				setSpeed(speed, speed);
-			}
-			else {
-				straight = 0;
-				turning = 1;
-				speed = MAXSPEED;
-				
-				setSpeed(BRAKE, BRAKE);
-				delay(400);
-				
-				printf("turn right\n");
-				setDir(RIGHT);
-				setSpeed(speed, speed);
-			}
+			move(FW);
 		}
 		else {
-			if (straight) {
-				if (speed > MINSPEED){
-					speed-=1;
-				}
-				setSpeed(speed, speed);
-			}
-			else {	
-				turning = 0;
-				straight = 1;
-				speed = MAXSPEED;
-				
-				printf("go straight\n");
-				setDir(FORWARD);
-				setSpeed(speed, speed);
-			}
+			move(RIGHT);
 		}
 	}
 
