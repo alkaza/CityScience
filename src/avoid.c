@@ -6,15 +6,14 @@
 #define MINDIST		5	// possible range 2~400 cm (3.3V)
 #define SPEED		150 	// possible range 0~255 PWM
 
+int turning = 0;
+int straight = 0;
+int speed = SPEED;
+
 int main(void)
 {
 	setup();
 	float dist;
-	int turning = 0;
-	int straight = 0;
-	int speed = SPEED;
-
-	setSpeed(SPEED, SPEED);
 	while (1) {
 		dist = getDist();
 		printf("dist = %0.2f cm\n", dist);
@@ -23,7 +22,7 @@ int main(void)
 		
 		/* Modify here */
 		if ((dist < MINDIST) && (dist > 0)) {
-			if (turning) {
+			if (turning==1) {
 				speed=-10;
 				setSpeed(speed, speed);
 			}
@@ -39,7 +38,7 @@ int main(void)
 			}
 		}
 		else {
-			if (straight) {
+			if (straight==1) {
 				speed=-10;
 				setSpeed(speed, speed);
 			}
