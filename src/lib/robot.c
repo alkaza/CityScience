@@ -17,6 +17,7 @@ void setup(void)
 
 	ultraInit();
 	motorInit();
+	setFlags('A'); // goes to default case (no match)
 }
 
 float calc_dist(void)
@@ -72,56 +73,6 @@ void move(char dir)
 		setDir(dir)
 		setSpeed(speed, speed);
 	}
-}
-
-void setFlags(char dir) 
-{
-	switch(dir) {
-		case 'F':
- 			flag = goingFW;
- 			break;
- 		case 'B':
- 			flag = goingBW;
- 			break;
- 		case 'R':
- 			flag = turningR;
- 			break;
- 		case 'L':
- 			flag = turningL;
- 			break;
-	}
-}
-
-int getFlag(char dir) 
-{
-	int flag;
-	switch(dir) {
-		case 'F':
- 			goingFW = 1;
- 			goingBW = 0;
- 			turningR = 0;
- 			turningL = 0;
- 			break;
- 		case 'B':
- 			goingFW = 0;
- 			goingBW = 1;
- 			turningR = 0;
- 			turningL = 0;
- 			break;
- 		case 'R':
- 			goingFW = 0;
- 			goingBW = 0;
- 			turningR = 1;
- 			turningL = 0;
- 			break;
- 		case 'L':
- 			goingFW = 0;
- 			goingBW = 0;
- 			turningR = 0;
- 			turningL = 1;
- 			break;
-	}
-	return flag;
 }
 
 void ultraInit(void)
@@ -207,6 +158,62 @@ void brake(void)
 void stop(void)
 {
 	setSpeed(0, 0);
+}
+
+int getFlag(char dir) 
+{
+	int flag;
+	switch(dir) {
+		case 'F':
+ 			flag = goingFW;
+ 			break;
+ 		case 'B':
+ 			flag = goingBW;
+ 			break;
+ 		case 'R':
+ 			flag = turningR;
+ 			break;
+ 		case 'L':
+ 			flag = turningL;
+ 			break;
+	}
+	return flag;
+}
+
+void setFlags(char dir) 
+{
+	switch(dir) {
+		case 'F':
+ 			goingFW = 1;
+ 			goingBW = 0;
+ 			turningR = 0;
+ 			turningL = 0;
+ 			break;
+ 		case 'B':
+ 			goingFW = 0;
+ 			goingBW = 1;
+ 			turningR = 0;
+ 			turningL = 0;
+ 			break;
+ 		case 'R':
+ 			goingFW = 0;
+ 			goingBW = 0;
+ 			turningR = 1;
+ 			turningL = 0;
+ 			break;
+ 		case 'L':
+ 			goingFW = 0;
+ 			goingBW = 0;
+ 			turningR = 0;
+ 			turningL = 1;
+ 			break;
+		default:
+ 			goingFW = 0;
+ 			goingBW = 0;
+ 			turningR = 0;
+ 			turningL = 0;
+ 			break;	
+	}
 }
 
 void sigHandler(int sigNo)
