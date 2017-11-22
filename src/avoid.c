@@ -22,7 +22,7 @@ int main(void)
 		
 		/* Modify here */
 		if ((dist < MINDIST) && (dist > 0)) {
-			if (turning) {
+			if (turning==1) {
 				if (speed < 50){
 					speed-=1;
 				}
@@ -42,7 +42,7 @@ int main(void)
 			}
 		}
 		else {
-			if (straight) {
+			if (straight==1) {
 				if (speed < 50){
 					speed-=1;
 				}
