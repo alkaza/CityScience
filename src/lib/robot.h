@@ -20,8 +20,8 @@
 /* Direction modes */
 #define FW  'F'
 #define BW  'B'
-#define CW  'R'
-#define CCW 'L'
+#define RIGHT 'R'
+#define LEFT  'L'
 #define STOP  'S'
 
 extern void setup	(void);
