@@ -23,10 +23,9 @@ int main(void)
 		
 		/* Modify here */
 		if ((dist < MINDIST) && (dist > 0)) {
-			if (turning && (speed > 100)) {
+			if (turning) {
 				speed=-10;
 				setSpeed(speed, speed);
-				return;
 			}
 			else {
 				straight = 0;
@@ -40,10 +39,9 @@ int main(void)
 			}
 		}
 		else {
-			if (straight && (speed > 100)) {
+			if (straight) {
 				speed=-10;
 				setSpeed(speed, speed);
-				return;
 			}
 			else {	
 				turning = 0;
