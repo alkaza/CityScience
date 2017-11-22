@@ -84,7 +84,7 @@ void setFlags(char dir)
 			flags = {0, 1, 0, 0};
 			break;
 		case 'R':
-			flags = {0, 1, 0, 0};
+			flags = {0, 0, 1, 0};
 			break;
 		case 'L':
 			flags = {0, 0, 0, 1};
