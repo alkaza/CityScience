@@ -78,17 +78,17 @@ void setFlags(char dir)
 {
 	switch(dir) {
 		case 'F':
-			flags = {1, 0, 0, 0};
-			break;
-		case 'B':
-			flags = {0, 1, 0, 0};
-			break;
-		case 'R':
-			flags = {0, 0, 1, 0};
-			break;
-		case 'L':
-			flags = {0, 0, 0, 1};
-			break;
+ 			flag = goingFW;
+ 			break;
+ 		case 'B':
+ 			flag = goingBW;
+ 			break;
+ 		case 'R':
+ 			flag = turningR;
+ 			break;
+ 		case 'L':
+ 			flag = turningL;
+ 			break;
 	}
 }
 
@@ -97,17 +97,29 @@ int getFlag(char dir)
 	int flag;
 	switch(dir) {
 		case 'F':
-			flag = flags[0];
-			break;
-		case 'B':
-			flag = flags[1];
-			break;
-		case 'R':
-			flag = flags[2];
-			break;
-		case 'L':
-			flag = flags[3];
-			break;
+ 			goingFW = 1;
+ 			goingBW = 0;
+ 			turningR = 0;
+ 			turningL = 0;
+ 			break;
+ 		case 'B':
+ 			goingFW = 0;
+ 			goingBW = 1;
+ 			turningR = 0;
+ 			turningL = 0;
+ 			break;
+ 		case 'R':
+ 			goingFW = 0;
+ 			goingBW = 0;
+ 			turningR = 1;
+ 			turningL = 0;
+ 			break;
+ 		case 'L':
+ 			goingFW = 0;
+ 			goingBW = 0;
+ 			turningR = 0;
+ 			turningL = 1;
+ 			break;
 	}
 	return flag;
 }
