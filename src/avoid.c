@@ -22,7 +22,7 @@ int main(void)
 		
 		/* Modify here */
 		if ((dist < MINDIST) && (dist > 0)) {
-			if (turning && (speed > 100) {
+			if (turning && (speed > 100)) {
 				speed--;
 				setSpeed(speed, speed);
 			}
