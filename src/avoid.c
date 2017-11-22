@@ -36,7 +36,7 @@ int main(void)
 				speed = MAXSPEED;
 				
 				setSpeed(BRAKE, BRAKE);
-				delay(500);
+				delay(400);
 				
 				printf("turn right\n");
 				setDir(RIGHT);
