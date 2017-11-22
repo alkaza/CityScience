@@ -40,7 +40,7 @@ int main(void)
 			}
 		}
 		else {
-			if (straight == 1)) {
+			if (straight == 1) {
 				if (speed < 50){
 					speed -= 1;
 					setSpeed(speed, speed);
