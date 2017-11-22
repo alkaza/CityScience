@@ -31,7 +31,7 @@ Ctrl-C
 - Turning right and left
 - Obstacle avoidance
 
-**Corresponding files** : `sensor.c motor.c avoid.c` 
+**Example files** : `sensor.c motor.c avoid.c` 
 
 ## Working Principles
 ### DC Motor Driver
