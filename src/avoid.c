@@ -10,7 +10,7 @@
 
 int turning = 0;
 int straight = 0;
-int speed = SPEED;
+int speed = MAXSPEED;
 
 int main(void)
 {
@@ -33,7 +33,7 @@ int main(void)
 			else {
 				straight = 0;
 				turning = 1;
-				speed = SPEED;
+				speed = MAXSPEED;
 				
 				setSpeed(BRAKE, BRAKE);
 				delay(500);
@@ -53,7 +53,7 @@ int main(void)
 			else {	
 				turning = 0;
 				straight = 1;
-				speed = SPEED;
+				speed = MAXSPEED;
 				
 				printf("go straight\n");
 				setDir(FORWARD);
