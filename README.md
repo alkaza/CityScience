@@ -64,7 +64,7 @@ Ctrl-C
   We write HIGH to Trig (output) pin for 10 usec to generate the ultrasound.
   That sends out an 8 cycle sonic burst which will travel at the speed of sound.
   The sound wave travels to an object and bounces back.
-  Echo (input) pin reads the sound wave travel time in microseconDs.
+  Echo (input) pin reads the sound wave travel time in microseconds.
 
 - Speed of the sound = 	34000 cm/sec (or 0.034 cm/usec)
 - Time = distance / speed
