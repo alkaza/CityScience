@@ -19,21 +19,7 @@ void setup(void)
 	motorInit();
 }
 
-void sigHandler(int sigNo)
-{
-	printf("Caught SIGINT, exiting now\n");
-	setDir(STOP);
-	setSpeed(0, 0);
-	exit(0);
-}
-
-void ultraInit(void)
-{
-	pinMode(Echo, INPUT);
-	pinMode(Trig, OUTPUT);
-}
-
-float getDist(void)
+float calc_dist(void)
 {
 	struct timeval tv1;
 	struct timeval tv2;
@@ -60,6 +46,88 @@ float getDist(void)
 	//dist = (stop - start) * 34000 / 1000000 / 2;
 
 	return dist;
+}
+
+void max_speed(int maxSpeed)
+{
+	return maxSpeed;
+}
+
+void min_speed(int minSpeed)
+{
+	return minSpeed;
+}
+
+void move(char dir)
+{
+	if (getFlag(dir)) {
+		if (speed > min_speed()){
+			speed-=1;
+		}
+		setSpeed(speed, speed);
+	}
+	else {	
+		setFlags(dir);
+		speed = max_speed();
+		setDir(dir)
+		setSpeed(speed, speed);
+	}
+}
+
+void setFlags(char dir) 
+{
+	switch(dir) {
+		case 'F':
+			goingFW = 1;
+			goingBW = 0;
+			turningR = 0;
+			turningL = 0;
+			break;
+		case 'B':
+			goingFW = 0;
+			goingBW = 1;
+			turningR = 0;
+			turningL = 0;
+			break;
+		case 'R':
+			goingFW = 0;
+			goingBW = 0;
+			turningR = 1;
+			turningL = 0;
+			break;
+		case 'L':
+			goingFW = 0;
+			goingBW = 0;
+			turningR = 0;
+			turningL = 1;
+			break;
+	}
+}
+
+int getFlag(char dir) 
+{
+	int flag;
+	switch(dir) {
+		case 'F':
+			flag = goingFW;
+			break;
+		case 'B':
+			flag = goingBW;
+			break;
+		case 'R':
+			flag = turningR;
+			break;
+		case 'L':
+			flag = turningL;
+			break;
+	}
+	return flag;
+}
+
+void ultraInit(void)
+{
+	pinMode(Echo, INPUT);
+	pinMode(Trig, OUTPUT);
 }
 
 void motorInit(void) 
@@ -92,9 +160,6 @@ void setDir(char dir)
 			break;
 		case 'L':
 			turnL();
-			break;
-		case 'S':
-			stop();
 			break;
 	}
 }
@@ -131,10 +196,23 @@ void turnL(void)
 	digitalWrite(MotorIn4, LOW);
 }
 
-void stop(void) 
+void brake(void) 
 {
 	digitalWrite(MotorIn1, LOW);
 	digitalWrite(MotorIn2, LOW);
 	digitalWrite(MotorIn3, LOW);
 	digitalWrite(MotorIn4, LOW);
+}
+
+void stop(void)
+{
+	setSpeed(0, 0);
+}
+
+void sigHandler(int sigNo)
+{
+	printf("Caught SIGINT, exiting now\n");
+	brake;
+	stop;
+	exit(0);
 }
