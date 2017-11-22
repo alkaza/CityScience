@@ -35,7 +35,7 @@ extern void setup       (void);
 extern int max_speed    (int maxSpeed);
 extern int min_speed    (int minSpeed);
 /* Motor control functions */
-extern void move_slow   (char dir);
+extern void move        (char dir);
 /* Calulate distance */
 extern float calc_dist  (void);
 
