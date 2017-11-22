@@ -16,14 +16,13 @@
 #define MotorEnB	23
 
 /* Direction modes */
-#define FW  'F'
-#define BW  'B'
+#define FW    'F'
+#define BW    'B'
 #define RIGHT 'R'
 #define LEFT  'L'
 
 /* Track flags */
-extern volatile int flags[4] = {0, 0, 0, 0}
-
+extern volatile int flags[4] = {0, 0, 0, 0};
 /* Track current speed */
 extern volatile int speed;
 
