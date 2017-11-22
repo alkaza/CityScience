@@ -23,7 +23,7 @@ int main(void)
 		/* Modify here */
 		if ((dist < MINDIST) && (dist > 0)) {
 			if (turning==1) {
-				if (speed < 50){
+				if (speed > 50){
 					speed-=1;
 				}
 				setSpeed(speed, speed);
@@ -43,7 +43,7 @@ int main(void)
 		}
 		else {
 			if (straight==1) {
-				if (speed < 50){
+				if (speed > 50){
 					speed-=1;
 				}
 				setSpeed(speed, speed);
