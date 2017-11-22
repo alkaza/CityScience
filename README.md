@@ -87,9 +87,9 @@ Ctrl-C
 | EnA            | Physical Pin12 | Pin1     | PWM0   |
 | In1            | Physical Pin13 | Pin2     |        |
 | In2            | Physical Pin15 | Pin3     |        |
+| In3            | Physical Pin29 | Pin21    |        |
+| In4            | Physical Pin21 | Pin22    |        |
 | EnB            | Physical Pin33 | Pin23    | PWM1   |
-| In3            | Physical Pin21 | Pin22    |        |
-| In4            | Physical Pin29 | Pin21    |        |
 | Gnd            | Physical Pin39 |          | Ground |
 
 **Important** : don't forget to connect Raspberry Pi GND to GND pin on the module to complete the circuit.
