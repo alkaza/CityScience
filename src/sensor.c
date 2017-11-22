@@ -9,7 +9,7 @@ int main(void)
 	float dist;
 
 	while (1) {
-		dist = getDist();
+		dist = calc_dist();
 		printf("dist = %0.2f cm\n", dist);
 		delay(1000);
 	}
