@@ -3,8 +3,10 @@
 #include "robot.h"
 
 /* Macros */
-#define MINDIST		5	// possible range 2~400 cm (3.3V)
-#define SPEED		150 	// possible range 0~255 PWM
+#define MINDIST		10	// possible range 2~400 cm (3.3V)
+#define MAXSPEED	150 	// possible range 0~255 PWM
+#define MINSPEED	100
+#define BRAKE		0
 
 int turning = 0;
 int straight = 0;
@@ -22,8 +24,8 @@ int main(void)
 		
 		/* Modify here */
 		if ((dist < MINDIST) && (dist > 0)) {
-			if (turning==1) {
-				if (speed > 50){
+			if (turning) {
+				if (speed > MINSPEED){
 					speed-=1;
 				}
 				setSpeed(speed, speed);
@@ -33,7 +35,7 @@ int main(void)
 				turning = 1;
 				speed = SPEED;
 				
-				setSpeed(0, 0);
+				setSpeed(BRAKE, BRAKE);
 				delay(500);
 				
 				printf("turn right\n");
@@ -42,8 +44,8 @@ int main(void)
 			}
 		}
 		else {
-			if (straight==1) {
-				if (speed > 50){
+			if (straight) {
+				if (speed > MINSPEED){
 					speed-=1;
 				}
 				setSpeed(speed, speed);
@@ -52,9 +54,6 @@ int main(void)
 				turning = 0;
 				straight = 1;
 				speed = SPEED;
-				
-				setSpeed(0, 0);
-				delay(500);
 				
 				printf("go straight\n");
 				setDir(FORWARD);
