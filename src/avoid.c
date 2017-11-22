@@ -4,8 +4,8 @@
 
 /* Macros */
 #define MINDIST		10	// possible range 2~400 cm (3.3V)
-#define MAXSPEED	130 	// possible range 0~255 PWM
-#define MINSPEED	70
+#define MAXSPEED	120 	// possible range 0~255 PWM
+#define MINSPEED	60
 #define BRAKE		0
 
 int turning = 0;
