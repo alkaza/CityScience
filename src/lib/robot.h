@@ -18,11 +18,11 @@
 #define MotorIn4	21
 
 /* Direction modes */
-#define FORWARD		'F'
-#define BACKWARD	'B'
-#define RIGHT		'R'
-#define LEFT		'L'
-#define STOP		'S'
+#define FW  'F'
+#define BW  'B'
+#define CW  'R'
+#define CCW 'L'
+#define STOP  'S'
 
 extern void setup	(void);
 
