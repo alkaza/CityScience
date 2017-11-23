@@ -66,7 +66,7 @@ void move(char dir, int maxSpeed, int minSpeed)
 		setSpeed(speed, speed);
 	}
 	else {	
-		setFlags(dir);
+		setFlag(dir);
 		speed = maxSpeed;
 		setDir(dir);
 		setSpeed(speed, speed);
