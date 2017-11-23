@@ -10,4 +10,4 @@ librobot : robot.o
 	ar rcs $@.a $<
 	
 clean :
-	$(RM) robot.o
+	$(RM) robot.o librobot.a
