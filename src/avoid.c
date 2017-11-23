@@ -10,8 +10,6 @@
 int main(void)
 {
 	setup();
-	min_speed(MINSPEED);
-	max_speed(MAXSPEED);
 	float dist;
 	while (1) {
 		dist = calc_dist();
@@ -22,10 +20,10 @@ int main(void)
 		
 		/* Modify here */
 		if ((dist < MINDIST) && (dist > 0)) {
-			move(FW);
+			move(FW, MAXSPEED, MINSPEED);
 		}
 		else {
-			move(RIGHT);
+			move(RIGHT, MAXSPEED, MINSPEED);
 		}
 	}
 
