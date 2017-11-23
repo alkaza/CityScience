@@ -20,6 +20,7 @@
 #define BW    'B'
 #define RIGHT 'R'
 #define LEFT  'L'
+#define INIT  'I'
 
 /* Track flags */
 extern volatile int turningR;
@@ -31,11 +32,8 @@ extern volatile int speed;
 
 /* Setup function */
 extern void setup       (void);
-/* Set speed range */
-extern int max_speed    (int maxSpeed);
-extern int min_speed    (int minSpeed);
 /* Motor control functions */
-extern void move        (char dir);
+extern void move        (char dir, int maxSpeed, int minSpeed);
 /* Calulate distance */
 extern float calc_dist  (void);
 
