@@ -20,7 +20,6 @@
 #define BW    'B'
 #define RIGHT 'R'
 #define LEFT  'L'
-#define INIT  'I'
 
 /* Track flags */
 extern volatile int turningR;
