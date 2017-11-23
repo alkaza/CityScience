@@ -21,7 +21,7 @@ void setup(void)
 	}
 	
 	if (wiringPiSetup() == -1) {
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 
 	ultraInit();
@@ -213,5 +213,6 @@ void sigHandler(int sigNo)
 	printf("Caught SIGINT, exiting now\n");
 	stop;
 	brake;
-	exit(0);
+	delayMicroseconds(2);
+	exit(EXIT_SUCCESS);
 }
