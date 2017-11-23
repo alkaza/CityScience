@@ -17,7 +17,7 @@ void setup(void)
 
 	ultraInit();
 	motorInit();
-	setFlags('A'); // goes to default case (no match)
+	setFlags(INIT);
 }
 
 float calc_dist(void)
@@ -49,28 +49,28 @@ float calc_dist(void)
 	return dist;
 }
 
-void max_speed(int maxSpeed)
+int max_speed(int maxSpeed)
 {
 	return maxSpeed;
 }
 
-void min_speed(int minSpeed)
+int min_speed(int minSpeed)
 {
 	return minSpeed;
 }
 
-void move(char dir)
+void move(char dir, int maxSpeed, int minSpeed)
 {
 	if (getFlag(dir)) {
-		if (speed > min_speed()){
+		if (speed > minSpeed){
 			speed-=1;
 		}
 		setSpeed(speed, speed);
 	}
 	else {	
 		setFlags(dir);
-		speed = max_speed();
-		setDir(dir)
+		speed = maxSpeed;
+		setDir(dir);
 		setSpeed(speed, speed);
 	}
 }
@@ -207,7 +207,7 @@ void setFlags(char dir)
  			turningR = 0;
  			turningL = 1;
  			break;
-		default:
+		case 'I':
  			goingFW = 0;
  			goingBW = 0;
  			turningR = 0;
