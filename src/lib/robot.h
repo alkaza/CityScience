@@ -49,6 +49,9 @@ extern void turnR       (void);
 extern void turnL       (void);
 extern void brake       (void);
 extern void stop        (void);
+/* Flag functions */
+extern void setFlag     (char dir);
+extern int getFlag      (char dir);
 /* Signal handler */
 extern void sigHandler  (int sigNo);
 
