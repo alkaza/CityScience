@@ -29,7 +29,7 @@ int main(void)
 		//delay(300);
 		
 		/* Stop */
-		setDir(STOP);
+		brake()
 		delay(3000);
 	}
 
