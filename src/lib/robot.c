@@ -160,9 +160,9 @@ void stop(void)
 	setSpeed(0, 0);
 }
 
-int getFlag(char dir) 
+volatile int getFlag(char dir) 
 {
-	int flag;
+	volatile int flag;
 	switch(dir) {
 		case 'F':
  			flag = goingFW;
