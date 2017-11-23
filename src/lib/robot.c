@@ -211,7 +211,7 @@ void setFlag(char dir)
 void sigHandler(int sigNo)
 {
 	printf("Caught SIGINT, exiting now\n");
-	brake;
 	stop;
+	brake;
 	exit(0);
 }
