@@ -4,6 +4,14 @@
 #include <wiringPi.h>
 #include "robot.h"
 
+/* Track flags */
+volatile int turningR;
+volatile int turningL;
+volatile int goingFW;
+volatile int goingBW;
+/* Track current speed */
+volatile int speed;
+
 void setup(void)
 {
 	/* Ctrl-C handler */
@@ -207,12 +215,6 @@ void setFlags(char dir)
  			turningR = 0;
  			turningL = 1;
  			break;
-		case 'I':
- 			goingFW = 0;
- 			goingBW = 0;
- 			turningR = 0;
- 			turningL = 0;
- 			break;	
 	}
 }
 
