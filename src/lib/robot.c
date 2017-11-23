@@ -177,7 +177,7 @@ int getFlag(char dir)
 	return flag;
 }
 
-void setFlags(char dir) 
+void setFlag(char dir) 
 {
 	switch(dir) {
 		case 'F':
