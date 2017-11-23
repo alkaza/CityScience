@@ -20,10 +20,10 @@ int main(void)
 		
 		/* Modify here */
 		if ((dist < MINDIST) && (dist > 0)) {
-			move(FW, MAXSPEED, MINSPEED);
+			move(RIGHT, MAXSPEED, MINSPEED);
 		}
 		else {
-			move(RIGHT, MAXSPEED, MINSPEED);
+			move(FW, MAXSPEED, MINSPEED);
 		}
 	}
 
