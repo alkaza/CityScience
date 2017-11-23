@@ -25,7 +25,6 @@ void setup(void)
 
 	ultraInit();
 	motorInit();
-	setFlags(INIT);
 }
 
 float calc_dist(void)
@@ -55,16 +54,6 @@ float calc_dist(void)
 	//dist = (stop - start) * 34000 / 1000000 / 2;
 
 	return dist;
-}
-
-int max_speed(int maxSpeed)
-{
-	return maxSpeed;
-}
-
-int min_speed(int minSpeed)
-{
-	return minSpeed;
 }
 
 void move(char dir, int maxSpeed, int minSpeed)
