@@ -6,12 +6,13 @@
 #include "robot.h"
 
 /* Track flags */
-volatile int turningR;
-volatile int turningL;
-volatile int goingFW;
-volatile int goingBW;
+volatile int turningR = 0;
+volatile int turningL = 0;
+volatile int goingFW = 0;
+volatile int goingBW = 0;
 /* Track current speed */
-volatile int speed;
+volatile int curr_speedA;
+volatile int curr_speedB;
 
 void setup(void)
 {
@@ -57,19 +58,27 @@ float calc_dist(void)
 	return dist;
 }
 
-void move(char dir, int maxSpeed, int minSpeed)
+void move(char dir, int speedA, int speedB)
+{
+	setDir(dir);
+	setSpeed(speedA, speedB);
+}
+
+void move_slow(char dir, int speedA, int speedB)
 {
 	if (getFlag(dir)) {
-		if (speed > minSpeed){
-			speed-=1;
+		if ((curr_speedA > MINSPEED) && (curr_speedB > MINSPEED)){
+			curr_speedA-=1;
+			curr_speedB-=1;
 		}
-		setSpeed(speed, speed);
+		setSpeed(curr_speedA, curr_speedB);
 	}
 	else {	
 		setFlag(dir);
-		speed = maxSpeed;
+		curr_speedA = speedA;
+		curr_speedB = speedB;
 		setDir(dir);
-		setSpeed(speed, speed);
+		setSpeed(curr_speedA, curr_speedB);
 	}
 }
 
