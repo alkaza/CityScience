@@ -4,8 +4,7 @@
 
 /* Macros */
 #define MINDIST		10	// possible range 2~400 cm (3.3V)
-#define MAXSPEED	120 	// possible range 0~255 PWM
-#define MINSPEED	60
+#define SPEED		120 	// possible range 60~255 PWM
 
 int main(void)
 {
@@ -13,17 +12,14 @@ int main(void)
 	float dist;
 	while (1) {
 		dist = calc_dist();
-		/* Debugging */
-		printf("dist = %0.2f cm\n", dist);
-		printf("speed = %d\n", speed);
 		delay(10);
 		
 		/* Modify here */
 		if ((dist < MINDIST) && (dist > 0)) {
-			move(RIGHT, MAXSPEED, MINSPEED);
+			move_slow(RIGHT, SPEED, SPEED);
 		}
 		else {
-			move(FW, MAXSPEED, MINSPEED);
+			move_slow(FW, SPEED, SPEED);
 		}
 	}
 
