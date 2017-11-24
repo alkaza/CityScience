@@ -219,9 +219,8 @@ void setFlag(char dir)
 
 void sigHandler(int sigNo)
 {
-	printf("Caught SIGINT, exiting now\n");
-	stop;
 	brake;
-	delayMicroseconds(2);
+	stop;
+	printf("Caught SIGINT, exiting now\n");
 	exit(EXIT_SUCCESS);
 }
