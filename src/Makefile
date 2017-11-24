@@ -3,7 +3,7 @@ CFLAGS = -I. -Wall
 LDFLAGS = -L.
 LDLIBS = -lrobot
 LIBS = -lwiringPi
-EXE = sensor motor avoid
+EXE = sensor motor synch avoid
 	
 all : $(EXE)
 	
