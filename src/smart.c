@@ -7,7 +7,7 @@
 #define SPEEDA		150 	// possible range 60~255 PWM
 #define SPEEDB		155
 
-int flag = 0;
+volatile int flag = 0;
 
 int main(void)
 {
@@ -19,7 +19,7 @@ int main(void)
 		delay(10);
 		/* Modify here */
 		if ((dist < MINDIST) && (dist > 0)) {
-			if (flag) {
+			if (flag==1) {
 				move(LEFT, SPEEDA, SPEEDB);
 				flag = 0;
 			}
