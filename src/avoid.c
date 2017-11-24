@@ -17,10 +17,10 @@ int main(void)
 		
 		/* Modify here */
 		if ((dist < MINDIST) && (dist > 0)) {
-			move_slow(RIGHT, SPEED, SPEED);
+			move_slow(RIGHT, SPEEDA, SPEEDB);
 		}
 		else {
-			move_slow(FW, SPEED, SPEED);
+			move_slow(FW, SPEEDA, SPEEDB);
 		}
 	}
 
