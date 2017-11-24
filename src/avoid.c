@@ -5,7 +5,7 @@
 /* Macros */
 #define MINDIST		10	// possible range 2~400 cm (3.3V)
 #define SPEEDA		120 	// possible range 60~255 PWM
-#define SPEEDB		124
+#define SPEEDB		130
 
 int main(void)
 {
