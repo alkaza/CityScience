@@ -21,18 +21,23 @@
 #define RIGHT 'R'
 #define LEFT  'L'
 
+/* Min speed */
+#define MINSPEED  60
+
 /* Track flags */
 extern volatile int turningR;
 extern volatile int turningL;
 extern volatile int goingFW;
 extern volatile int goingBW;
 /* Track current speed */
-extern volatile int speed;
+extern volatile int curr_speedA;
+extern volatile int curr_speedB;
 
 /* Setup function */
 extern void setup       (void);
 /* Motor control functions */
-extern void move        (char dir, int maxSpeed, int minSpeed);
+extern void move        (char dir, int speedA, int speedB);
+extern void move_slow   (char dir, int speedA, int speedB);
 /* Calulate distance */
 extern float calc_dist  (void);
 
