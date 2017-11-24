@@ -4,15 +4,14 @@
 
 /* Speed */
 #define SPEEDA	150 // possible range 0~255 PWM
-#define SPEEDB	160
+#define SPEEDB	155
+
 int main(void)
 {
 	setup();
-	
-	setSpeed(SPEEDA, SPEEDB);
-	
+		
 	while (1) {
-		setDir(FW);
+		move(FW, SPEEDA, SPEEDB);
 	}
 
 	return 0;
