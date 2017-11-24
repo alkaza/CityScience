@@ -1,7 +1,7 @@
-#include <stdio.h>
+#include <signal.h>
 #include <stdlib.h>
 #include <sys/time.h>
-#include <signal.h>
+#include <stdio.h>
 #include <wiringPi.h>
 #include "robot.h"
 
@@ -219,8 +219,8 @@ void setFlag(char dir)
 
 void sigHandler(int sigNo)
 {
-	brake;
-	stop;
 	printf("Caught SIGINT, exiting now\n");
+	brake();
+	stop();
 	exit(EXIT_SUCCESS);
 }
