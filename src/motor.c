@@ -13,11 +13,11 @@ int main(void)
 	
 	while (1) {
 		//printf("go straight\n");
-		//setDir(FORWARD);
+		//setDir(FW);
 		//delay(400);
 
 		//printf("go back\n");
-		//setDir(BACKWARD);
+		//setDir(BW);
 		//delay(200);
 		
 		printf("turn right\n");
