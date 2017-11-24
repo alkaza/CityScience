@@ -60,8 +60,8 @@ float calc_dist(void)
 
 void move(char dir, int speedA, int speedB)
 {
-	setDir(dir);
 	setSpeed(speedA, speedB);
+	setDir(dir);
 }
 
 void move_slow(char dir, int speedA, int speedB)
@@ -77,8 +77,8 @@ void move_slow(char dir, int speedA, int speedB)
 		setFlag(dir);
 		curr_speedA = speedA;
 		curr_speedB = speedB;
-		setDir(dir);
 		setSpeed(curr_speedA, curr_speedB);
+		setDir(dir);
 	}
 }
 
