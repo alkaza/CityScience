@@ -13,20 +13,20 @@ int main(void)
 {
 	setup();
 	float dist;
+	
 	while (1) {
 		dist = calc_dist();
 		delay(10);
-		
 		/* Modify here */
 		if ((dist < MINDIST) && (dist > 0)) {
-      if (flag) {
-        move_slow(LEFT, SPEEDA, SPEEDB);
-        flag = 0;
-      }
-      else {
-        move_slow(RIGHT, SPEEDA, SPEEDB);
-        flag = 1;
-      }
+			if (flag) {
+				move_slow(LEFT, SPEEDA, SPEEDB);
+				flag = 0;
+			}
+			else {
+				move_slow(RIGHT, SPEEDA, SPEEDB);
+				flag = 1;
+			}
 		}
 		else {
 			move_slow(FW, SPEEDA, SPEEDB);
