@@ -29,6 +29,7 @@ Ctrl-C
 - Measuring distance
 - Going forward and backward 
 - Turning right and left
+- Synchronizing motors
 - Obstacle avoidance
 
 **Example files** : `sensor.c motor.c avoid.c` 
