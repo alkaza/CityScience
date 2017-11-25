@@ -24,7 +24,7 @@
 /* Min speed */
 #define MINSPEED  60
 
-/* Track flags */
+/* Track current flag */
 extern volatile int turningR;
 extern volatile int turningL;
 extern volatile int goingFW;
@@ -33,18 +33,19 @@ extern volatile int goingBW;
 extern volatile int curr_speedA;
 extern volatile int curr_speedB;
 
-/* Setup function */
+/* Setup */
 extern void setup       (void);
-/* Motor control functions */
+/* Motor state control */
 extern void move        (char dir, int speedA, int speedB);
 extern void move_slow   (char dir, int speedA, int speedB);
 /* Calulate distance */
 extern float calc_dist  (void);
 
-/* Initialization functions */
+/* Initialize */
 extern void ultraInit   (void);
 extern void motorInit   (void);
-/* Motor helper functions */
+
+/* Motor functions */
 extern void setSpeed    (int speedA, int speedB);
 extern void setDir      (char dir);
 extern void goFW        (void);
@@ -53,10 +54,12 @@ extern void turnR       (void);
 extern void turnL       (void);
 extern void brake       (void);
 extern void stop        (void);
+
 /* Flag functions */
 extern void setFlag     (char dir);
 extern int getFlag      (char dir);
-/* Signal handler */
+
+/* Ctrl-C handler */
 extern void sigHandler  (int sigNo);
 
 #endif
