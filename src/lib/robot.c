@@ -5,7 +5,7 @@
 #include <wiringPi.h>
 #include "robot.h"
 
-/* Track flags */
+/* Track current flag */
 volatile int turningR = 0;
 volatile int turningL = 0;
 volatile int goingFW = 0;
@@ -14,6 +14,7 @@ volatile int goingBW = 0;
 volatile int curr_speedA;
 volatile int curr_speedB;
 
+/* Setup function */
 void setup(void)
 {
 	/* Ctrl-C handler */
@@ -21,14 +22,18 @@ void setup(void)
 		perror("Error: cannot handle SIGINT\n");
 	}
 	
+	/* Initialize wiringPi */
 	if (wiringPiSetup() == -1) {
 		exit(EXIT_FAILURE);
 	}
 
+	/* Initialize ultrasonic sensor */
 	ultraInit();
+	/* Initialize dc motor driver */
 	motorInit();
 }
 
+/* Calculate distance */
 float calc_dist(void)
 {
 	struct timeval tv1;
@@ -58,12 +63,14 @@ float calc_dist(void)
 	return dist;
 }
 
+/* Motor state control normal */
 void move(char dir, int speedA, int speedB)
 {
 	setSpeed(speedA, speedB);
 	setDir(dir);
 }
 
+/* Motor state control with gradual deceleration */
 void move_slow(char dir, int speedA, int speedB)
 {
 	if (getFlag(dir)) {
@@ -82,12 +89,14 @@ void move_slow(char dir, int speedA, int speedB)
 	}
 }
 
+/* Initialize ultrasonic sensor */
 void ultraInit(void)
 {
 	pinMode(Echo, INPUT);
 	pinMode(Trig, OUTPUT);
 }
 
+/* Initialize dc motor driver */
 void motorInit(void) 
 {
 	pinMode(MotorIn1, OUTPUT);
@@ -98,12 +107,14 @@ void motorInit(void)
 	pinMode(MotorEnB, PWM_OUTPUT);
 }
 
+/* Set motor speed */
 void setSpeed(int speedA, int speedB) 
 {
 	pwmWrite(MotorEnA, speedA);
 	pwmWrite(MotorEnB, speedB);
 }
 
+/* Set motor direction */
 void setDir(char dir) 
 {
 	switch (dir) {
@@ -122,6 +133,7 @@ void setDir(char dir)
 	}
 }
 
+/* Go forward */
 void goFW(void) 
 {
 	digitalWrite(MotorIn1, HIGH);
@@ -130,6 +142,7 @@ void goFW(void)
 	digitalWrite(MotorIn4, LOW);
 }
 
+/* Go backward */
 void goBW(void) 
 {
 	digitalWrite(MotorIn1, LOW);
@@ -138,6 +151,7 @@ void goBW(void)
 	digitalWrite(MotorIn4, HIGH);
 }
 
+/* Turn right */
 void turnR(void) 
 {
 	digitalWrite(MotorIn1, HIGH);
@@ -146,6 +160,7 @@ void turnR(void)
 	digitalWrite(MotorIn4, HIGH);
 }
 
+/* Turn left */
 void turnL(void) 
 {
 	digitalWrite(MotorIn1, LOW);
@@ -154,6 +169,7 @@ void turnL(void)
 	digitalWrite(MotorIn4, LOW);
 }
 
+/* Brake */
 void brake(void) 
 {
 	digitalWrite(MotorIn1, LOW);
@@ -162,11 +178,13 @@ void brake(void)
 	digitalWrite(MotorIn4, LOW);
 }
 
+/* Stop */
 void stop(void)
 {
 	setSpeed(0, 0);
 }
 
+/* Get current direction flag */
 int getFlag(char dir) 
 {
 	int flag;
@@ -187,6 +205,7 @@ int getFlag(char dir)
 	return flag;
 }
 
+/* Set current direction flag */
 void setFlag(char dir) 
 {
 	switch(dir) {
@@ -217,6 +236,7 @@ void setFlag(char dir)
 	}
 }
 
+/* Ctrl-C handler */
 void sigHandler(int sigNo)
 {
 	printf("Caught SIGINT, exiting now\n");
