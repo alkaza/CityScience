@@ -11,6 +11,7 @@ int main(void)
 {
 	setup();
 	float dist;
+	min_speed = 70;
 	while (1) {
 		dist = calc_dist();
 		delay(10);
