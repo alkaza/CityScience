@@ -22,17 +22,16 @@
 #define LEFT  'L'
 
 /* Min speed */
-#define MINSPEED  60
-
+exern int min_speed;
 /* Track current speed */
 extern volatile int curr_speedA;
 extern volatile int curr_speedB;
 /* Track previous direction*/
-volatile char prev_dir;
+extern volatile char prev_dir;
 
 /* Setup */
 extern void setup       (void);
-/* Motor state control */
+/* Motor control */
 extern void move        (char dir, int speedA, int speedB);
 extern void move_slow   (char dir, int speedA, int speedB);
 /* Calulate distance */
