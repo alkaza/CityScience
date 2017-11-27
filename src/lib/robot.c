@@ -13,6 +13,10 @@ volatile int goingBW = 0;
 /* Track current speed */
 volatile int curr_speedA;
 volatile int curr_speedB;
+/* Track previous direction*/
+volatile char prev_dir;
+/* Track current direction*/
+volatile char curr_dir;
 
 /* Setup function */
 void setup(void)
@@ -73,6 +77,7 @@ void move(char dir, int speedA, int speedB)
 /* Motor state control with gradual deceleration */
 void move_slow(char dir, int speedA, int speedB)
 {
+	/*
 	if (getFlag(dir)) {
 		if ((curr_speedA > MINSPEED) && (curr_speedB > MINSPEED)){
 			curr_speedA-=1;
@@ -82,6 +87,23 @@ void move_slow(char dir, int speedA, int speedB)
 	}
 	else {	
 		setFlag(dir);
+		curr_speedA = speedA;
+		curr_speedB = speedB;
+		setSpeed(curr_speedA, curr_speedB);
+		setDir(dir);
+	}
+	*/
+
+	if (curr_dir == prev_dir) {
+		prev_dir = dir;
+		if ((curr_speedA > MINSPEED) && (curr_speedB > MINSPEED)){
+			curr_speedA-=1;
+			curr_speedB-=1;
+		}
+		setSpeed(curr_speedA, curr_speedB);
+	}
+	else {	
+		curr_dir = dir;
 		curr_speedA = speedA;
 		curr_speedB = speedB;
 		setSpeed(curr_speedA, curr_speedB);
