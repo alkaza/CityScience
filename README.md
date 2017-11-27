@@ -6,19 +6,15 @@ git clone https://github.com/alkaza/RPiRobot.git
 ```
 Go to the Code Directory
 ```
-cd CityScience/src
+cd /home/pi/CityScience/src
 ```
 Compile the program
 ```
-make all
-```
-Cleanup before recompiling
-```
-make clean
+make sample
 ```
 Run the program
 ```
-sudo ./motor
+sudo ./sample
 ```
 Terminate the program
 ```
@@ -32,7 +28,7 @@ Ctrl-C
 - Synchronizing motors
 - Obstacle avoidance
 
-**Example files** : `sensor.c motor.c avoid.c` 
+**Example files** : `sensor.c motor.c synch.c avoid.c` 
 
 ## Working Principles
 ### DC Motor Driver
