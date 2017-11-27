@@ -7,7 +7,7 @@ int main(void)
 	setup();
 	
 	while (1) {
-		// implement here
+		/* Implement here */
 	}
 
 	return 0;
