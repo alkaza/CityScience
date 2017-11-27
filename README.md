@@ -28,7 +28,7 @@ Ctrl-C
 - Synchronizing motors
 - Obstacle avoidance
 
-**Example files** : `sensor.c motor.c synch.c avoid.c` 
+**Example files** : `sensor.c motor.c motor_synch.c avoid.c avoid_alter.c` 
 
 ## Working Principles
 ### DC Motor Driver
