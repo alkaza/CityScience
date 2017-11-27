@@ -24,11 +24,6 @@
 /* Min speed */
 #define MINSPEED  60
 
-/* Track current flag */
-extern volatile int turningR;
-extern volatile int turningL;
-extern volatile int goingFW;
-extern volatile int goingBW;
 /* Track current speed */
 extern volatile int curr_speedA;
 extern volatile int curr_speedB;
@@ -58,10 +53,6 @@ extern void turnR       (void);
 extern void turnL       (void);
 extern void brake       (void);
 extern void stop        (void);
-
-/* Flag functions */
-extern void setFlag     (char dir);
-extern int getFlag      (char dir);
 
 /* Ctrl-C handler */
 extern void sigHandler  (int sigNo);
