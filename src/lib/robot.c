@@ -5,6 +5,8 @@
 #include <wiringPi.h>
 #include "robot.h"
 
+/* Min speed */
+int min_speed = 60;
 /* Track current flag */
 volatile int turningR = 0;
 volatile int turningL = 0;
@@ -65,19 +67,12 @@ float calc_dist(void)
 	return dist;
 }
 
-/* Motor state control normal */
-void move(char dir, int speedA, int speedB)
-{
-	setSpeed(speedA, speedB);
-	setDir(dir);
-}
-
 /* Motor state control with gradual deceleration */
 void move_slow(char dir, int speedA, int speedB)
 {
 	if (dir == prev_dir) {
 		prev_dir = dir;
-		if ((curr_speedA > MINSPEED) && (curr_speedB > MINSPEED)){
+		if ((curr_speedA > min_speed) && (curr_speedB > min_speed)){
 			curr_speedA-=1;
 			curr_speedB-=1;
 		}
@@ -90,6 +85,12 @@ void move_slow(char dir, int speedA, int speedB)
 		setSpeed(curr_speedA, curr_speedB);
 		setDir(dir);
 	}
+}
+
+/* Set min speed */
+void set_min_speed(int speed)
+{
+	min_speed = speed;
 }
 
 /* Initialize ultrasonic sensor */
