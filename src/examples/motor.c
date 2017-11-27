@@ -3,13 +3,14 @@
 #include "robot.h"
 
 /* Speed */
-#define SPEED	150 // possible range 0~255 PWM
+#define SPEEDA	150 // possible range 0~255 PWM
+#define SPEEDB	150
 
 int main(void)
 {
 	setup();
 	
-	setSpeed(SPEED, SPEED);
+	setSpeed(SPEEDA, SPEEDB);
 	
 	while (1) {
 		//printf("go straight\n");
