@@ -32,6 +32,10 @@ extern volatile int goingBW;
 /* Track current speed */
 extern volatile int curr_speedA;
 extern volatile int curr_speedB;
+/* Track previous direction*/
+volatile char prev_dir;
+/* Track current direction*/
+volatile char curr_dir;
 
 /* Setup */
 extern void setup       (void);
