@@ -77,23 +77,7 @@ void move(char dir, int speedA, int speedB)
 /* Motor state control with gradual deceleration */
 void move_slow(char dir, int speedA, int speedB)
 {
-	/*
-	if (getFlag(dir)) {
-		if ((curr_speedA > MINSPEED) && (curr_speedB > MINSPEED)){
-			curr_speedA-=1;
-			curr_speedB-=1;
-		}
-		setSpeed(curr_speedA, curr_speedB);
-	}
-	else {	
-		setFlag(dir);
-		curr_speedA = speedA;
-		curr_speedB = speedB;
-		setSpeed(curr_speedA, curr_speedB);
-		setDir(dir);
-	}
-	*/
-
+	curr_dir = dir;
 	if (curr_dir == prev_dir) {
 		prev_dir = dir;
 		if ((curr_speedA > MINSPEED) && (curr_speedB > MINSPEED)){
@@ -103,7 +87,7 @@ void move_slow(char dir, int speedA, int speedB)
 		setSpeed(curr_speedA, curr_speedB);
 	}
 	else {	
-		curr_dir = dir;
+		prev_dir = dir;
 		curr_speedA = speedA;
 		curr_speedB = speedB;
 		setSpeed(curr_speedA, curr_speedB);
@@ -204,58 +188,6 @@ void brake(void)
 void stop(void)
 {
 	setSpeed(0, 0);
-}
-
-/* Get current direction flag */
-int getFlag(char dir) 
-{
-	int flag;
-	switch(dir) {
-		case 'F':
- 			flag = goingFW;
- 			break;
- 		case 'B':
- 			flag = goingBW;
- 			break;
- 		case 'R':
- 			flag = turningR;
- 			break;
- 		case 'L':
- 			flag = turningL;
- 			break;
-	}
-	return flag;
-}
-
-/* Set current direction flag */
-void setFlag(char dir) 
-{
-	switch(dir) {
-		case 'F':
- 			goingFW = 1;
- 			goingBW = 0;
- 			turningR = 0;
- 			turningL = 0;
- 			break;
- 		case 'B':
- 			goingFW = 0;
- 			goingBW = 1;
- 			turningR = 0;
- 			turningL = 0;
- 			break;
- 		case 'R':
- 			goingFW = 0;
- 			goingBW = 0;
- 			turningR = 1;
- 			turningL = 0;
- 			break;
- 		case 'L':
- 			goingFW = 0;
- 			goingBW = 0;
- 			turningR = 0;
- 			turningL = 1;
- 			break;
-	}
 }
 
 /* Ctrl-C handler */
