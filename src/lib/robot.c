@@ -67,7 +67,14 @@ float calc_dist(void)
 	return dist;
 }
 
-/* Motor state control with gradual deceleration */
+/* Motor control */
+void move(char dir, int speedA, int speedB)
+{
+	setSpeed(speedA, speedB);
+	setDir(dir);
+}
+
+/* Motor control with gradual deceleration */
 void move_slow(char dir, int speedA, int speedB)
 {
 	if (dir == prev_dir) {
