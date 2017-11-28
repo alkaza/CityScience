@@ -22,7 +22,7 @@
 #define LEFT  'L'
 
 /* Min speed */
-exern int min_speed;
+extern int min_speed;
 /* Track current speed */
 extern volatile int curr_speedA;
 extern volatile int curr_speedB;
