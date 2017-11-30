@@ -4,17 +4,51 @@ Get Source Code
 ```
 git clone https://github.com/alkaza/RPiRobot.git
 ```
-Go to the Code Directory
+Go to library directory
+```
+cd /home/pi/CityScience/src/lib
+```
+Compile static library
+```
+make all
+```
+Cleanup static library (if changes were made to static library)
+```
+make clean
+```
+Go to source directory
 ```
 cd /home/pi/CityScience/src
 ```
-Compile the program
+Copy static library to working directory
 ```
-make sample
+sh /home/pi/CityScience/src/scripts/cplib.sh
+examples
+```
+Remove static library from working directory (if changes were made to static library)
+```
+sh /home/pi/CityScience/src/scripts/rmlib.sh
+examples
+```
+Go to working directory
+```
+cd /home/pi/CityScience/src/examples
+```
+Compile all programs
+```
+make all
+```
+Compile one program
+```
+make sensor
+```
+Cleanup program (if changes were made to the program)
+```
+rm sensor
 ```
 Run the program
 ```
-sudo ./sample
+sudo ./sensor
 ```
 Terminate the program
 ```
