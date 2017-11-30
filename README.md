@@ -1,4 +1,4 @@
-# Overview
+# RPiRobot Guidelines
 ## Getting Started
 Get Source Code
 ```
@@ -59,9 +59,9 @@ Terminate the program
 Ctrl-C
 ```
 
-## Robot Library
+## Tutorial
 ### Sample code
-```
+```c
 #include <stdio.h>
 #include <wiringPi.h>
 #include "robot.h"
