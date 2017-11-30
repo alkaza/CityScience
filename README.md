@@ -77,9 +77,9 @@ int main(void)
 	return 0;
 }
 ```
-- **stdio.h** is provides many standard library functions for file input and output
+- **stdio.h** provides many standard library functions for file input and output
 - **wiringPi.h** is a GPIO Interface library for the Raspberry Pi
-- **robot.h** is a static library for RPiRobot
+- **robot.h** is a static library for the RPiRobot
 
 ### Setup function
 ```
