@@ -101,6 +101,7 @@ while (1) {
 ```
 calc_dist ();
 ```
+- **Recommended distance for obstacle avoidance**: 4~20
 
 ### Simple motor control
 ```
@@ -111,8 +112,7 @@ move (direction, speedA, speedB);
 ```
 move_slow (direction, speedA, speedB);
 ```
-
-**Recommended speed range**: 70~150
+- **Recommended speed range**: 70~150
 
 ### Direction modes
 - **FW** – go straight
