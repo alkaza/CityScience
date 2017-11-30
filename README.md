@@ -1,38 +1,46 @@
 # Overview
-## Guidelines
+## Getting Started
 Get Source Code
 ```
 git clone https://github.com/alkaza/RPiRobot.git
+```
+Update reposidory
+```
+git pull
 ```
 Go to library directory
 ```
 cd /home/pi/CityScience/src/lib
 ```
-Compile static library
-```
-make all
-```
 Cleanup static library (if changes were made to static library)
 ```
 make clean
 ```
+Compile static library
+```
+make all
+```
 Go to source directory
 ```
 cd /home/pi/CityScience/src
-```
-Copy static library to working directory
-```
-sh /home/pi/CityScience/src/scripts/cplib.sh
-examples
 ```
 Remove static library from working directory (if changes were made to static library)
 ```
 sh /home/pi/CityScience/src/scripts/rmlib.sh
 examples
 ```
-Go to working directory
+Copy static library to examples directory
+```
+sh /home/pi/CityScience/src/scripts/cplib.sh
+examples
+```
+Go to examples directory
 ```
 cd /home/pi/CityScience/src/examples
+```
+Cleanup all programs (if changes were made to examples)
+```
+make clean
 ```
 Compile all programs
 ```
@@ -42,10 +50,6 @@ Compile one program
 ```
 make sensor
 ```
-Cleanup program (if changes were made to the program)
-```
-rm sensor
-```
 Run the program
 ```
 sudo ./sensor
@@ -53,6 +57,89 @@ sudo ./sensor
 Terminate the program
 ```
 Ctrl-C
+```
+
+## Robot Library
+### Sample code
+```
+#include <stdio.h>
+#include <wiringPi.h>
+#include "robot.h"
+
+int main(void)
+{
+	setup();
+	
+	while (1) {
+		/* Implement here */
+	}
+
+	return 0;
+}
+```
+- **stdio.h** is provides many standard library functions for file input and output
+- **wiringPi.h** is a GPIO Interface library for the Raspberry Pi
+- **robot.h** is a static library for RPiRobot
+
+### Setup function
+- Must include to run once
+- Allows to terminate the program with Ctrl-C
+- Initializes WiringPi, ultrasonic sensor and dc motor driver and 
+
+```
+setup ();
+```
+
+### Infinite loop
+Put your main code here to run repeatedly
+```
+while (1) {
+	/* Your code */
+}
+```
+
+### Calculate distance detected by ultrasonic sensor
+```
+calc_dist ();
+```
+
+### Simple motor control
+```
+move (direction, speedA, speedB);
+```
+
+### Motor control with gradual deceleration	
+```
+move_slow (direction, speedA, speedB);
+```
+
+**Recommended speed range**: 70~150
+
+### Direction modes
+- **FW** – go straight
+- **BW** – go back
+- **RIGHT** – turn right
+- **LEFT** – turn left
+
+
+### Advanced variables
+Change until which speed to decelerate (70 by default)
+```
+min_speed = speed;
+```
+Check the previous direction taken
+```
+prev_dir
+```
+
+### Low-level motor control
+Set direction
+```
+setDir (direction);
+```
+Set speed
+```
+setSpeed (speedA, speedB);
 ```
 
 ## Experiments
