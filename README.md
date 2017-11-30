@@ -9,7 +9,7 @@ Update repository
 git pull
 ```
 Go to library directory
-```
+```sh
 cd /home/pi/CityScience/src/lib
 ```
 Cleanup static library (if changes were made to static library)
@@ -21,21 +21,21 @@ Compile static library
 make all
 ```
 Go to source directory
-```
+```sh
 cd /home/pi/CityScience/src
 ```
 Remove static library from working directory (if changes were made to static library)
-```
+```sh
 sh /home/pi/CityScience/src/scripts/rmlib.sh
 examples
 ```
 Copy static library to examples directory
-```
+```sh
 sh /home/pi/CityScience/src/scripts/cplib.sh
 examples
 ```
 Go to examples directory
-```
+```sh
 cd /home/pi/CityScience/src/examples
 ```
 Cleanup all programs (if changes were made to examples)
@@ -51,7 +51,7 @@ Compile one program
 make sensor
 ```
 Run the program
-```
+```sh
 sudo ./sensor
 ```
 Terminate the program
@@ -82,7 +82,7 @@ int main(void)
 - **robot.h** is a static library for the RPiRobot
 
 ### Setup function
-```
+```c
 setup ();
 ```
 - Must include to run once
@@ -90,7 +90,7 @@ setup ();
 - Initializes WiringPi, ultrasonic sensor and dc motor driver and 
 
 ### Infinite loop
-```
+```c
 while (1) {
 	/* Your code */
 }
@@ -98,18 +98,18 @@ while (1) {
 - Put your main code here to run repeatedly
 
 ### Calculate distance detected by ultrasonic sensor
-```
+```c
 calc_dist ();
 ```
 - **Recommended distance for obstacle avoidance**: 4~20
 
 ### Simple motor control
-```
+```c
 move (direction, speedA, speedB);
 ```
 
 ### Motor control with gradual deceleration	
-```
+```c
 move_slow (direction, speedA, speedB);
 ```
 - **Recommended speed range**: 70~150
@@ -123,21 +123,23 @@ move_slow (direction, speedA, speedB);
 
 ### Advanced variables
 Change until which speed to decelerate (70 by default)
-```
+```c
 min_speed = speed;
 ```
 Check the previous direction taken
-```
-prev_dir
+```c
+if (prev_dir == direction){
+	/* Your code */
+}
 ```
 
 ### Low-level motor control
 Set direction
-```
+```c
 setDir (direction);
 ```
 Set speed
-```
+```c
 setSpeed (speedA, speedB);
 ```
 
