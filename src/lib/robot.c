@@ -7,11 +7,6 @@
 
 /* Min speed */
 volatile int min_speed = 70;
-/* Track current flag */
-volatile int turningR = 0;
-volatile int turningL = 0;
-volatile int goingFW = 0;
-volatile int goingBW = 0;
 /* Track current speed */
 volatile int curr_speedA;
 volatile int curr_speedB;
