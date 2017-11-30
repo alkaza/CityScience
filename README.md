@@ -1,10 +1,10 @@
 # RPiRobot Guidelines
 ## Getting Started
-Get Source Code
+Get source code
 ```
 git clone https://github.com/alkaza/RPiRobot.git
 ```
-Update reposidory
+Update repository
 ```
 git pull
 ```
@@ -82,21 +82,20 @@ int main(void)
 - **robot.h** is a static library for RPiRobot
 
 ### Setup function
+```
+setup ();
+```
 - Must include to run once
 - Allows to terminate the program with Ctrl-C
 - Initializes WiringPi, ultrasonic sensor and dc motor driver and 
 
-```
-setup ();
-```
-
 ### Infinite loop
-Put your main code here to run repeatedly
 ```
 while (1) {
 	/* Your code */
 }
 ```
+- Put your main code here to run repeatedly
 
 ### Calculate distance detected by ultrasonic sensor
 ```
