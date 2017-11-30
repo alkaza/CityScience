@@ -6,7 +6,7 @@
 #include "robot.h"
 
 /* Min speed */
-int min_speed = 60;
+volatile int min_speed = 70;
 /* Track current flag */
 volatile int turningR = 0;
 volatile int turningL = 0;
@@ -92,12 +92,6 @@ void move_slow(char dir, int speedA, int speedB)
 		setSpeed(curr_speedA, curr_speedB);
 		setDir(dir);
 	}
-}
-
-/* Set min speed */
-void set_min_speed(int speed)
-{
-	min_speed = speed;
 }
 
 /* Initialize ultrasonic sensor */
