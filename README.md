@@ -87,7 +87,7 @@ setup ();
 ```
 - Must include to run once
 - Allows to terminate the program with Ctrl-C
-- Initializes WiringPi, ultrasonic sensor and dc motor driver and 
+- Initializes WiringPi, ultrasonic sensor and dc motor driver 
 
 ### Infinite loop
 ```c
